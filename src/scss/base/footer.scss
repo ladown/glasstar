@@ -1,0 +1,313 @@
+.footer {
+  overflow-x: hidden;
+  .main-page & {
+    padding: toRem(120) toRem(65);
+    @include to(1200px) {
+      padding: 75px 20px;
+    }
+    @include to(576px) {
+      padding: 60px 20px 32px 20px;
+    }
+  }
+  .catalog-page & {
+    padding: toRem(200) toRem(65) toRem(120) toRem(65);
+    @include to(1200px) {
+      padding: 120px 20px 75px 20px;
+    }
+    @include to(992px) {
+      padding: 75px 20px 35px 20px;
+    }
+  }
+  .catalog-inner-page & {
+    padding: toRem(200) toRem(65) toRem(120) toRem(65);
+    @include to(1200px) {
+      padding: 120px 20px 75px 20px;
+    }
+    @include to(992px) {
+      padding: 75px 20px 35px 20px;
+    }
+  }
+  &__wrap {
+    position: relative;
+    padding-top: toRem(60);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    @include to(1200px) {
+      padding-top: 35px;
+    }
+    @include to(576px) {
+      padding-top: 0;
+      justify-content: initial;
+      align-items: initial;
+      flex-flow: column nowrap;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: toRem(-65);
+      width: calc(100% + toRem(130));
+      height: 1px;
+      background-color: #303030;
+      @include to(576px) {
+        display: none;
+      }
+    }
+  }
+  &__nav {
+    flex: 0 1 toRem(700);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    @include to(1200px) {
+      flex: 0 1 440px;
+    }
+    @include to(992px) {
+      flex: 0 1 350px;
+      margin-right: 50px;
+    }
+    @include to(768px) {
+      margin-right: 25px;
+    }
+    @include to(576px) {
+      flex-flow: column nowrap;
+      align-items: initial;
+      flex: auto;
+      width: 100%;
+      margin-right: 0;
+    }
+    &-item {
+      display: flex;
+      flex-flow: column nowrap;
+      &_row {
+        @include to(576px) {
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .footer__link {
+          @include to(576px) {
+            font-size: 16px;
+            line-height: 28px;
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+      &:not(:last-child) {
+        margin-right: toRem(180);
+        @include to(1200px) {
+          margin-right: 100px;
+        }
+        @include to(992px) {
+          margin-right: 50px;
+        }
+        @include to(768px) {
+          margin-right: 25px;
+        }
+        @include to(576px) {
+          margin-right: 0;
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+  &__link {
+    font-weight: 350;
+    font-size: toRem(22);
+    line-height: toRem(25);
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+    color: #ffffff;
+    transition: opacity 0.3s ease-in-out;
+    @include to(1200px) {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    @include to(576px) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    &:hover,
+    &:focus {
+      opacity: 0.6;
+      transition: opacity 0.3s ease-in-out;
+    }
+    &:not(:last-child) {
+      margin-bottom: toRem(15);
+      @include to(1200px) {
+        margin-bottom: 10px;
+      }
+      @include to(576px) {
+        margin-bottom: 15px;
+      }
+    }
+    &-count {
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: toRem(25);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      @include to(576px) {
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+    &_big {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      margin-bottom: toRem(60) !important;
+      @include to(1200px) {
+        margin-bottom: 37.5px !important;
+      }
+      @include to(768px) {
+        margin-bottom: 30px;
+      }
+      .footer__link-text {
+        font-size: toRem(60);
+        line-height: 100%;
+        margin-right: toRem(25);
+        @include to(1200px) {
+          font-size: 37.5px;
+          margin-right: 15px;
+        }
+        @include to(768px) {
+          font-size: 30px;
+        }
+        @include to(576px) {
+          font-size: 43px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  &__info {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 0 1 toRem(900);
+    @include to(1200px) {
+      flex: 0 1 400px;
+    }
+    @include to(768px) {
+      flex: 0 1 290px;
+    }
+    @include to(576px) {
+      flex: auto;
+      width: 100%;
+      margin-top: 50px;
+    }
+  }
+  &__contacts {
+    display: grid;
+    grid-template-columns: toRem(460) minmax(toRem(200), 1fr);
+    gap: 15px;
+    align-items: end;
+    justify-items: end;
+    @include to(1200px) {
+      grid-template-columns: 290px minmax(160px, 1fr);
+    }
+    @include to(992px) {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: initial;
+      justify-items: initial;
+    }
+    @include to(768px) {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    @include to(576px) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+  &__address {
+    grid-row: 1 / 3;
+    font-style: normal;
+    font-weight: 350;
+    font-size: toRem(22);
+    line-height: toRem(25);
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    @include to(992px) {
+      grid-row: 1 / 2;
+      grid-column: 1 /3;
+    }
+    @include to(768px) {
+      grid-row: initial;
+      grid-column: initial;
+    }
+    @include to(576px) {
+      margin-top: 16px;
+      font-size: 16px;
+      line-height: 28px;
+      order: 3;
+    }
+  }
+  &__contact {
+    width: fit-content;
+    font-weight: 350;
+    font-size: toRem(22);
+    line-height: toRem(25);
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+    color: #ffffff;
+    transition: opacity 0.3s ease-in-out;
+    @include to(1200px) {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    @include to(576px) {
+      font-size: 22px;
+      line-height: 25px;
+    }
+    &:hover,
+    &:focus {
+      opacity: 0.6;
+      transition: opacity 0.3s ease-in-out;
+    }
+    &:not(:last-child) {
+      margin-bottom: toRem(5);
+      @include to(1200px) {
+        margin-bottom: 3px;
+      }
+    }
+  }
+  &__developedby {
+    margin-top: toRem(45);
+    font-weight: 400;
+    font-size: toRem(22);
+    line-height: toRem(25);
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 14px;
+      line-height: 16px;
+      margin-top: 25px;
+    }
+    @include to(576px) {
+      margin-top: 40px;
+      font-size: 16px;
+      line-height: 28px;
+    }
+    a {
+      color: #ffffff;
+      transition: opacity 0.3s ease-in-out;
+      &:hover {
+        opacity: 0.6;
+        transition: opacity 0.3s ease-in-out;
+      }
+    }
+  }
+}

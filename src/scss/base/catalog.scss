@@ -1,0 +1,188 @@
+.catalog {
+  .main-page & {
+    padding: toRem(100) toRem(65) toRem(120) toRem(60);
+    @include to(1200px) {
+      padding: 62px 20px 75px 20px;
+    }
+    @include to(992px) {
+      padding: 80px 20px 90px 20px;
+    }
+    @include to(576px) {
+      padding: 100px 0;
+    }
+  }
+  .catalog-page & {
+    padding: toRem(175) toRem(65) 0 toRem(65);
+    @include to(1200px) {
+      padding: 110px 20px 0 20px;
+    }
+    @include to(992px) {
+      padding-top: 95px;
+    }
+    @include to(768px) {
+      padding-top: 80px;
+    }
+    @include to(576px) {
+      padding: 60px 0 0 0;
+    }
+  }
+  .catalog-inner-page & {
+    padding-top: toRem(60);
+    @include to(1200px) {
+      padding-top: 37.5px;
+    }
+    @include to(992px) {
+      padding-top: 30px;
+    }
+  }
+  &__wrap {
+    width: 100%;
+  }
+  &__header {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    @include to(576px) {
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+  }
+  &__title {
+    font-weight: 350;
+    font-size: toRem(60);
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 37.5px;
+    }
+    @include to(992px) {
+      font-size: 32px;
+    }
+  }
+  &__counter {
+    font-style: italic;
+    font-weight: 350;
+    font-size: toRem(32);
+    line-height: toRem(39);
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-left: toRem(25);
+    @include to(1200px) {
+      margin-left: 15px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+    @include to(992px) {
+      font-size: 32px;
+      line-height: 39px;
+    }
+    @include to(576px) {
+      margin-left: 0;
+    }
+  }
+  &__items {
+    margin-top: toRem(30);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px 10px;
+    @include to(1200px) {
+      margin-top: 20px;
+    }
+    @include to(768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    @include to(576px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+  }
+  &__item {
+    padding: toRem(100) 0 toRem(25) 0;
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a;
+    @include to(1200px) {
+      padding: 62px 0 18px 0;
+    }
+    @include to(992px) {
+      paddind: 40px 0 18px 0;
+    }
+    @include to(576px) {
+      border-top: none;
+      padding: 40px 20px 18px 20px;
+    }
+    &:nth-child(2n + 1) {
+      @include to(576px) {
+        border-right: 1px solid #2a2a2a;
+      }
+    }
+    &:nth-child(1),
+    &:nth-child(2) {
+      @include to(576px) {
+        border-top: 1px solid #2a2a2a;
+      }
+    }
+    &-img {
+      display: flex;
+      margin: 0 auto;
+      width: toRem(207);
+      height: toRem(301);
+      @include to(1200px) {
+        width: 129px;
+        height: 188px;
+      }
+      @include to(576px) {
+        width: 101px;
+        height: 147px;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        @include cover;
+      }
+    }
+    &-info {
+      margin-top: toRem(60);
+      @include to(1200px) {
+        margin-top: 38px;
+      }
+      @include to(992px) {
+        margin-top: 30px;
+      }
+      @include to(768px) {
+        margin-top: 25px;
+      }
+    }
+    &-caption {
+      font-weight: 350;
+      font-size: toRem(18);
+      line-height: 100%;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      transition: opacity 0.3s ease-in-out;
+      &:hover {
+        opacity: 0.6;
+        transition: opacity 0.3s ease-in-out;
+      }
+      @include to(1200px) {
+        font-size: 14px;
+      }
+    }
+    &-descr {
+      margin-top: 10px;
+      font-weight: 350;
+      font-size: toRem(18);
+      line-height: 100%;
+      letter-spacing: -0.03em;
+      text-transform: lowercase;
+      color: #ffffff;
+      @include to(1200px) {
+        font-size: 14px;
+      }
+      @include to(992px) {
+        margin-top: 5px;
+      }
+    }
+  }
+}

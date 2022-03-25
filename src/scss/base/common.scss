@@ -1,0 +1,27 @@
+html {
+  font-size: 18px;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Suisse Intl";
+  background-color: #000;
+  position: relative;
+  &.blocked-scroll {
+    overflow: hidden !important;
+  }
+}
+
+main.content {
+  opacity: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  padding-top: toRem(74);
+  @include to(1200px) {
+    padding-top: 46px;
+  }
+  @include to(992px) {
+    padding-top: 81px;
+  }
+}

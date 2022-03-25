@@ -1,0 +1,14 @@
+doctype html
+
+include settings.pug
+block variables
+
+html(lang="ru" dir="ltr")
+  include head.pug
+  include mixins.pug
+  body(class=`${bodyClass}`)
+    include loader.pug
+    include header.pug
+    main.content
+      block content
+      include footer.pug

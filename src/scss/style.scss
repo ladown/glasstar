@@ -1,0 +1,21 @@
+@import "./library/breakpoints";
+@import "./library/mixins";
+@import "./base/functions";
+@import "./base/variables";
+@import "./base/mixins";
+
+@import "./base/normalize";
+@import "./base/fonts";
+
+@import "./base/templates";
+@import "./base/animation";
+
+@import "./base/common.scss";
+@import "./base/header.scss";
+@import "./base/catalog.scss";
+@import "./base/goods.scss";
+@import "./base/footer.scss";
+
+@import "./pages/main-page/main-page.scss";
+@import "./pages/catalog-page/catalog-page.scss";
+@import "./pages/catalog-inner-page/catalog-products.scss";

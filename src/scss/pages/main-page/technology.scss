@@ -1,0 +1,239 @@
+.technology {
+  position: relative;
+  &__wrap {
+    padding: toRem(100) toRem(65);
+    min-height: toRem(1100);
+    @include to(1200px) {
+      min-height: 700px;
+      padding: 60px 20px;
+    }
+    @include to(992px) {
+      min-height: 600px;
+      padding: 40px 20px;
+    }
+    @include to(768px) {
+      min-height: 500px;
+    }
+    @include to(576px) {
+      min-height: 400px;
+    }
+  }
+  &__title {
+    font-weight: 350;
+    font-size: toRem(60);
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 37.5;
+    }
+    @include to(992px) {
+      font-size: 34px;
+      line-height: 45px;
+    }
+    @include to(768px) {
+      font-size: 31px;
+      line-height: 42px;
+    }
+    @include to(576px) {
+      font-size: 28px;
+      line-height: 39px;
+    }
+  }
+  &__video-btn {
+    position: relative;
+    margin: toRem(60) auto 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: toRem(340);
+    height: toRem(340);
+    z-index: 1;
+    @include to(1200px) {
+      width: 210px;
+      height: 210px;
+      margin-top: 37.5px;
+    }
+    @include to(576px) {
+      margin-top: 10px;
+      width: 145px;
+      height: 145px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      opacity: 0.4;
+      border: 1px solid #4a4a4a;
+      border-radius: 100%;
+      pointer-events: none;
+      animation: pulseLine 3s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+      z-index: -1;
+      @include to(576px) {
+        border-width: 0.732224px;
+        width: calc(100% + 102px);
+        height: calc(100% + 102px);
+        animation-duration: 2s;
+        animation-delay: 0.25s;
+      }
+    }
+    &-text {
+      font-weight: 350;
+      font-size: toRem(60);
+      line-height: 100%;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        font-size: 37.5px;
+      }
+      @include to(992px) {
+        font-size: 34px;
+        line-height: 35px;
+      }
+      @include to(768px) {
+        font-size: 29px;
+        line-height: 30px;
+      }
+      @include to(576px) {
+        font-size: 24px;
+        line-height: 25px;
+      }
+    }
+    &-lines {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: toRem(198);
+      height: toRem(198);
+      border: 1px solid #4a4a4a;
+      border-radius: 100%;
+      pointer-events: none;
+      animation: pulseLines 3s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+      z-index: -1;
+      @include to(1200px) {
+        width: 120px;
+        height: 120px;
+      }
+      @include to(576px) {
+        width: 100%;
+        height: 100%;
+        border-width: 0.732224px;
+        animation-duration: 2s;
+      }
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        border-radius: 100%;
+        border: 1px solid #4a4a4a;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: inherit;
+        animation: pulseLines 3s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+        @include to(576px) {
+          border-width: 0.732224px;
+          animation-duration: 2s;
+          animation-delay: 0.5s;
+        }
+      }
+      &::after {
+        width: calc(100% + toRem(56));
+        height: calc(100% + toRem(56));
+        opacity: 0.8;
+        @include to(1200px) {
+          width: calc(100% + 30px);
+          height: calc(100% + 30px);
+        }
+        @include to(576px) {
+          width: calc(100% + 32px);
+          height: calc(100% + 32px);
+        }
+      }
+      &::before {
+        width: calc(100% + toRem(102));
+        height: calc(100% + toRem(102));
+        opacity: 0.6;
+        @include to(1200px) {
+          width: calc(100% + 60px);
+          height: calc(100% + 60px);
+        }
+        @include to(576px) {
+          width: calc(100% + 68px);
+          height: calc(100% + 68px);
+        }
+      }
+    }
+  }
+  &__heading {
+    font-weight: 350;
+    font-size: toRem(44);
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin: toRem(40) auto 0 auto;
+    text-align: center;
+    @include to(1201px) {
+      margin-top: 25px;
+      font-size: 27px;
+    }
+    @include to(992px) {
+      margin-top: 30px;
+      font-size: 43px;
+    }
+  }
+  &__text {
+    display: block;
+    margin: toRem(40) auto 0 auto;
+    width: 100%;
+    max-width: toRem(500);
+    font-weight: 350;
+    font-size: toRem(22);
+    line-height: toRem(28);
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      margin-top: 25px;
+      max-width: 315px;
+      font-size: 14px;
+      line-height: 18px;
+    }
+    @include to(992px) {
+      margin-top: 30px;
+      font-size: 16px;
+      line-height: 20px;
+      max-width: 350px;
+    }
+  }
+  &__btn {
+    margin: toRem(60) auto 0 auto;
+    width: 100%;
+    max-width: toRem(440);
+    min-height: toRem(100);
+    @include to(1200px) {
+      margin-top: 40px;
+      max-width: 260px;
+    }
+    @include to(992px) {
+      max-width: 335px;
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    img {
+      display: block;
+      @include cover;
+    }
+  }
+}

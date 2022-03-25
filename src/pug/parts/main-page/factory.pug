@@ -1,0 +1,20 @@
+include ../../inc/settings.pug
+
+section.factory
+  .factory__wrap 
+    h2.factory__title(data-sal="fade" data-sal-duration="400" data-sal-delay="100" data-sal-easing="ease-in-sine") Завод
+    img.factory__heading(
+      src=`${imgPath}main-page/factory/heading.svg`
+      alt="factory-heading"
+      data-sal="fade"
+      data-sal-duration="400"
+      data-sal-easing="ease-in-sine")
+    .factory__subblock
+      p.factory__text(data-sal="fade" data-sal-duration="400" data-sal-delay="200" data-sal-easing="ease-in-sine") Гусь-Хрустальный стекольный завод основан в 1996 году. За 25 лет мы стали лидером производства посуды с титановой обработкой в России. Мы выпускаем 16 миллионов товаров в месяц, и с каждым годом накапливаем производственные мощности
+      button.factory__btn.button(href="#" data-sal="fade" data-sal-duration="300" data-sal-easing="ease-in-sine") 
+        span подробнее
+        svg(width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg")
+          path(d="M0.717518 15.8597L14.8597 1.71753M14.8597 1.71753H1.42462M14.8597 1.71753V15.1526" stroke="white" stroke-width="2")
+  picture.factory__bg(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine")
+    source(srcset=`${imgPath}main-page/factory/factory-bg-mob.png` media="(max-width: 576px)")
+    img(src=`${imgPath}main-page/factory/factory-bg.png` alt="factory-image")

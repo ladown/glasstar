@@ -1,0 +1,9 @@
+include ../../inc/settings.pug
+
+section.catalog-promo
+  .catalog-promo__wrap 
+    h1.catalog-promo__title(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") продукция
+    include ../../inc/goods.pug
+  picture.catalog-promo__bg(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") 
+    source(srcset=`${imgPath}catalog-page/catalog-promo/catalog-promo-bg-mob.png` media="(max-width: 576px)")
+    img(src=`${imgPath}catalog-page/catalog-promo/catalog-promo-bg.png` alt="catalog-promo-background")

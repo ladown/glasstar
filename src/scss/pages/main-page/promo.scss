@@ -1,0 +1,126 @@
+.promo {
+  position: relative;
+  padding: 110px toRem(65) 150px toRem(65);
+  z-index: 1;
+  @include to(1200px) {
+    padding: 110px 20px 150px 20px;
+  }
+  @include to(992px) {
+    padding: 95px 20px 130px 20px;
+  }
+  @include to(768px) {
+    padding: 80px 20px 110px 20px;
+  }
+  @include to(576px) {
+    padding: 60px 20px 85px 20px;
+  }
+  &__wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    @include to(768px) {
+      flex-flow: column nowrap;
+      justify-content: initial;
+    }
+  }
+  &__descr {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 0 0 toRem(900);
+    @include to(1200px) {
+      flex: 0 0 610px;
+    }
+    @include to(992px) {
+      flex: 0 0 420px;
+    }
+    @include to(768px) {
+      flex: auto;
+      width: 100%;
+    }
+  }
+  &__title {
+    display: flex;
+    flex-flow: column nowrap;
+    font-weight: 350;
+    font-size: toRem(97);
+    line-height: 100%;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 65px;
+    }
+    @include to(992px) {
+      font-size: 45px;
+    }
+    @include to(576px) {
+      font-size: 34px;
+    }
+    @include to(370px) {
+      font-size: 30px;
+    }
+    span {
+      &:not(:last-child) {
+        margin-bottom: toRem(20);
+        @include to(992px) {
+          margin-bottom: 10px;
+        }
+        @include to(576px) {
+          margin-bottom: 7px;
+        }
+      }
+    }
+  }
+  &__text {
+    margin-top: toRem(80);
+    font-weight: 350;
+    font-size: toRem(28);
+    line-height: toRem(39);
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 19px;
+      line-height: 28px;
+      margin-top: 55px;
+    }
+    @include to(992px) {
+      margin-top: 60px;
+      font-size: 16px;
+      line-height: 21px;
+    }
+  }
+  &__btn {
+    margin-left: toRem(50);
+    align-self: flex-end;
+    flex: 0 1 toRem(600);
+    @include to(1200px) {
+      margin-left: 34px;
+    }
+    @include to(992px) {
+      flex: 0 1 300px;
+    }
+    @include to(768px) {
+      flex: auto;
+      width: 100%;
+      max-width: 320px;
+      margin: 60px auto 0 auto;
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    mix-blend-mode: multiply;
+    z-index: -1;
+    picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    img {
+      display: block;
+      @include cover;
+    }
+  }
+}

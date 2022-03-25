@@ -1,0 +1,55 @@
+.catalog-products {
+  padding: toRem(75) toRem(65) 0 toRem(65);
+  @include to(1200px) {
+    padding: 45px 20px 0 20px;
+  }
+  @include to(992px) {
+    padding-top: 25px;
+  }
+  @include to(576px) {
+    padding: 25px 0 0 0;
+  }
+  &__title {
+    font-weight: 350;
+    font-size: toRem(118);
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    color: #ffffff;
+    text-align: center;
+    @include to(1200px) {
+      font-size: 73px;
+    }
+    @include to(992px) {
+      font-size: 60px;
+    }
+    @include to(360px) {
+      font-size: 50px;
+    }
+    @include to(576px) {
+      text-align: left;
+      padding: 0 20px;
+    }
+  }
+  &__subtitle {
+    margin-top: toRem(40);
+    font-weight: 400;
+    font-size: toRem(60);
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    text-align: center;
+    @include to(1200px) {
+      font-size: 37.5px;
+      margin-top: 25px;
+    }
+    @include to(992px) {
+      margin-top: 30px;
+      font-size: 28px;
+      line-height: 39px;
+    }
+    @include to(576px) {
+      text-align: left;
+      padding: 0 20px;
+    }
+  }
+}

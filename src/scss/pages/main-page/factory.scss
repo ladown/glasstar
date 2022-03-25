@@ -1,0 +1,106 @@
+.factory {
+  position: relative;
+  z-index: 0;
+  &__wrap {
+    padding: toRem(100) toRem(65);
+    min-height: toRem(1100);
+    @include to(1200px) {
+      padding: 60px 20px;
+      min-height: 700px;
+    }
+    @include to(992px) {
+      padding: 30px 20px;
+      min-height: 600px;
+    }
+  }
+  &__title {
+    font-weight: 350;
+    font-size: toRem(60);
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 37.5px;
+    }
+    @include to(992px) {
+      font-size: 28px;
+      line-height: 39px;
+    }
+  }
+  &__heading {
+    display: block;
+    margin-top: toRem(100);
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    @include to(1200px) {
+      margin-top: 60px;
+    }
+    @include to(992px) {
+      margin-top: 40px;
+    }
+    @include to(768px) {
+      margin-top: 20px;
+    }
+  }
+  &__subblock {
+    margin-top: toRem(80);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    @include to(1200px) {
+      margin-top: 50px;
+    }
+    @include to(992px) {
+      margin-top: 35px;
+      flex-flow: column nowrap;
+      justify-content: initial;
+      align-items: initial;
+    }
+  }
+  &__text {
+    width: 100%;
+    max-width: toRem(900);
+    font-weight: 350;
+    font-size: toRem(28);
+    line-height: toRem(39);
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      max-width: 565px;
+      font-size: 17.5px;
+      line-height: 24px;
+    }
+    @include to(992px) {
+      font-size: 28px;
+      line-height: 39px;
+      max-width: unset;
+    }
+  }
+  &__btn {
+    margin-left: toRem(50);
+    width: 100%;
+    max-width: toRem(440);
+    @include to(1200px) {
+      margin-left: 30px;
+      max-width: 260px;
+    }
+    @include to(992px) {
+      max-width: 335px;
+      margin: 35px auto 0 auto;
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    img {
+      display: block;
+      @include cover;
+    }
+  }
+}

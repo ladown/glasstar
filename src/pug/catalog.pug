@@ -1,0 +1,10 @@
+extends inc/layout.pug
+
+include inc/settings.pug
+
+block append variables
+  - bodyClass = "catalog-page";
+
+block content
+  include parts/catalog-page/catalog-promo.pug
+  +catalog('Популярное')

@@ -1,0 +1,41 @@
+@keyframes pulseLines {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes pulseLine {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+}
+
+@include to(576px) {
+  @keyframes pulseLines {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(1.15);
+    }
+  }
+
+  @keyframes pulseLine {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(1.3);
+    }
+  }
+}

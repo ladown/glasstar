@@ -1,0 +1,50 @@
+.button {
+  min-height: toRem(100);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: toRem(20);
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  font-weight: 350;
+  font-size: toRem(24);
+  line-height: 100%;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+  color: #ffffff;
+  transition: background-color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715), color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
+  @include to(1200px) {
+    padding: 14px;
+    font-size: 17px;
+    margin-left: 34px;
+    min-height: 70px;
+  }
+  @include to(992px) {
+    font-size: 16px;
+    line-height: 25px;
+  }
+  @include to(768px) {
+    min-height: 90px;
+  }
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715), color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
+    path {
+      stroke: #000;
+      transition: stroke 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
+    }
+  }
+  span {
+    margin-top: auto;
+  }
+  svg {
+    margin-bottom: auto;
+    flex: 0 0 20px;
+    width: 20px;
+    height: auto;
+  }
+  path {
+    transition: stroke 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
+  }
+}

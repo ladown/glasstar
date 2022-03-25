@@ -1,0 +1,18 @@
+include ../../inc/settings.pug
+
+section.technology(data-aos="fade-up")
+  picture.technology__bg(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine")
+    source(srcset=`${imgPath}main-page/technology/technology-bg.png` media="(max-width: 576px)")
+    img(src=`${imgPath}main-page/technology/technology-bg.png` alt="technology-image")
+  .technology__wrap 
+    h2.technology__title(data-sal="fade" data-sal-duration="400" data-sal-delay="100" data-sal-easing="ease-in-sine") Технология
+    .technology__content 
+      button.technology__video-btn(data-sal="zoom-in" data-sal-duration="400" data-sal-delay="200" data-sal-easing="ease-in-sine") 
+        span.technology__video-btn-text Ti
+        span.technology__video-btn-lines
+      h3.technology__heading(data-sal="fade" data-sal-duration="400" data-sal-delay="200" data-sal-easing="ease-in-sine") Titanium Content
+      p.technology__text(data-sal="fade" data-sal-duration="400" data-sal-delay="300" data-sal-easing="ease-in-sine") Титановая обработка безвредна, гипоалергенна. В производственном процессе не используется крастка
+      button.technology__btn.button(href="#" data-sal="fade" data-sal-duration="300" data-sal-easing="ease-in-sine")
+        span подробнее
+        svg(width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg")
+          path(d="M0.717518 15.8597L14.8597 1.71753M14.8597 1.71753H1.42462M14.8597 1.71753V15.1526" stroke="white" stroke-width="2")

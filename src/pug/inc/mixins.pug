@@ -1,0 +1,20 @@
+mixin catalog(title, subtitle)
+  section.catalog
+    .catalog__wrap 
+      if title
+        .catalog__header 
+          h2.catalog__title(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") #{ title }
+          p.catalog__counter(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") (8)
+      if subtitle
+        p.catalog__subtitle(data-sal="fade" data-sal-duration="400" data-sal-delay="100" data-sal-easing="ease-in-sine") #{ subtitle }
+      .catalog__items
+        - var n = 0;
+        - var animDelay = [0, 200, 400, 600, 0, 200, 400, 600];
+        while n < 8
+          .catalog__item(data-sal="fade" data-sal-duration="400" data-sal-delay=`${animDelay[n]}` data-sal-easing="ease-in-sine")
+            a.catalog__item-img(href="#") 
+              img(src=`${imgPath}catalog/good-${n + 1}.png` alt="good-image")
+            .catalog__item-info 
+              a.catalog__item-caption(href="#") Golden bro
+              p.catalog__item-descr Для красного вина
+          - n++;

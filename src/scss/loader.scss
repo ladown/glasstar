@@ -1,0 +1,110 @@
+@import "./base/functions.scss";
+@import "./library/breakpoints";
+
+@keyframes slideInRightLoader {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 100;
+  &__wrap {
+    overflow: hidden;
+    padding: toRem(70) toRem(60);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    height: 100%;
+    @include to(1200px) {
+      padding: 40px 20px;
+    }
+  }
+  &__title {
+    text-align: center;
+    margin-top: toRem(100);
+    font-weight: 350;
+    font-size: toRem(120);
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 75px;
+      margin-top: 60px;
+    }
+    @include to(992px) {
+      font-size: 65px;
+      margin-top: 50px;
+    }
+    @include to(768px) {
+      font-size: 55px;
+      margin-top: 40px;
+    }
+    @include to(576px) {
+      font-size: 40px;
+      margin-top: 30px;
+    }
+  }
+  &__items {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideInRightLoader 10s infinite alternate cubic-bezier(0.47, 0, 0.745, 0.715);
+    @include to(1200px) {
+      animation-duration: 8s;
+    }
+    @include to(992px) {
+      animation-duration: 6s;
+    }
+    @include to(768px) {
+      animation-duration: 4s;
+    }
+    @include to(1200px) {
+      align-items: flex-end;
+    }
+  }
+  &__item {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    @include to(1200px) {
+      max-width: 50px;
+    }
+    @include to(992px) {
+      max-width: 40px;
+    }
+    @include to(768px) {
+      max-width: 30px;
+    }
+    @include to(576px) {
+      max-width: 20px;
+      height: auto;
+    }
+    &:not(:last-child) {
+      margin-right: toRem(130);
+      @include to(1200px) {
+        margin-right: 80px;
+      }
+      @include to(992px) {
+        max-width: 40px;
+      }
+      @include to(768px) {
+        max-width: 30px;
+      }
+      @include to(576px) {
+        margin-right: 20px;
+      }
+    }
+  }
+}
