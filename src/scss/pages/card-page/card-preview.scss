@@ -1,0 +1,85 @@
+.card-preview {
+  padding: toRem(40) toRem(65) 0 toRem(65);
+  @include to(1200px) {
+    padding: 20px 0 0 0;
+  }
+  @include to(992px) {
+    padding-top: 30px;
+  }
+  &__image {
+    display: block;
+    img {
+      display: block;
+      max-width: 100%;
+      @include cover;
+      @include to(576px) {
+        min-height: 200px;
+      }
+    }
+  }
+  &__block {
+    margin-left: auto;
+    width: 100%;
+    max-width: toRem(900);
+    margin-top: toRem(80);
+    display: flex;
+    flex-flow: column nowrap;
+    @include to(1200px) {
+      margin-top: 50px;
+      max-width: 560px;
+      padding: 0 20px;
+    }
+    @include to(992px) {
+      margin-top: 30px;
+    }
+    @include to(576px) {
+      margin-top: 20px;
+    }
+  }
+  &__links {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    @include to(576px) {
+      flex-flow: column nowrap;
+      align-items: initial;
+      justify-content: initial;
+    }
+  }
+  &__link {
+    font-weight: 350;
+    font-size: toRem(32);
+    line-height: toRem(40);
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    transition: opacity 0.3s ease-in-out;
+    @include to(1200px) {
+      font-size: 20px;
+      line-height: 25px;
+    }
+    @include to(576px) {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    &:hover,
+    &:focus {
+      opacity: 0.6;
+      transition: opacity 0.3s ease-in-out;
+    }
+    &:last-child {
+      text-decoration: underline;
+    }
+    &:not(:last-child) {
+      @include to(576px) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  &__btn {
+    margin-top: toRem(40);
+    @include to(1200px) {
+      margin-top: 25px;
+    }
+  }
+}

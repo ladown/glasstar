@@ -12,11 +12,11 @@
   letter-spacing: -0.03em;
   text-transform: lowercase;
   color: #ffffff;
-  transition: background-color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715), color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
+  transition: background-color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715), color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715),
+    opacity 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
   @include to(1200px) {
     padding: 14px;
     font-size: 17px;
-    margin-left: 34px;
     min-height: 70px;
   }
   @include to(992px) {

@@ -1,0 +1,84 @@
+include ../../inc/settings.pug
+
+section.card-promo 
+  .card-promo__wrap
+    a.card-promo__back(href="#" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") 
+      img(src=`${imgPath}icons/arrow-to-left.svg` alt="arrow-to-left-icon")
+      span назад
+    .card-promo__descr
+      .card-promo__descr-item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+        .card-promo__descr-key Объём
+        .card-promo__descr-value 375 см
+      .card-promo__descr-item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+        .card-promo__descr-key Высота
+        .card-promo__descr-value 26 см
+      .card-promo__descr-item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+        .card-promo__descr-key Кол-во в упаковке
+        .card-promo__descr-value 6 штук
+      .card-promo__descr-item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+        .card-promo__descr-key Год производства
+        .card-promo__descr-value 2023
+      .card-promo__descr-item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+        .card-promo__descr-key Минимальный заказ
+        .card-promo__descr-value 100 коробов
+      .card-promo__descr-item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+        .card-promo__descr-key Артикул
+        .card-promo__descr-value EL1
+    .card-promo__heading
+      p.card-promo__subtitle Бокалы для шампанского
+      h1.card-promo__title Moon Space
+    .card-promo__img(data-sal="zoom-in" data-sal-duration="400" data-sal-easing="ease-in-sine")
+      img(src=`${imgPath}card-page/card-promo/card-main.png` alt="card-main-photo")
+    .card-promo__slider(data-slider="card-promo" data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+      .swiper 
+        .swiper-wrapper
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Blue-gold
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Chocolate
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Purple Green
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Blue-gold
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Silver Blue
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Chocolate
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Chocolate
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Chocolate
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Chocolate
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Chocolate
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Chocolate
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Chocolate
+          .swiper-slide.card-promo__slide
+            img.card-promo__slide-img(src=`${imgPath}card-page/card-promo/card-slide.png` alt="card-slide-image")
+            h3.card-promo__slide-caption Chocolate
+      .card-promo__slider-controls
+        button.card-promo__slider-btn(data-slider="card-promo-prev")
+          img(src=`${imgPath}icons/arrow-to-left.svg` alt="arrow-to-left-icon")
+        nav.card-promo__slider-pagination(data-slider="card-promo-pagination")
+        button.card-promo__slider-btn(data-slider="card-promo-next")
+          img(src=`${imgPath}icons/arrow-to-right.svg` alt="arrow-to-right-icon")
+      .card-promo__slider-progress-bar
+    button.card-promo__btn.button(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine")
+      span Заказать
+      svg(width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg")
+        path(d="M0.717518 15.8597L14.8597 1.71753M14.8597 1.71753H1.42462M14.8597 1.71753V15.1526" stroke="white" stroke-width="2")

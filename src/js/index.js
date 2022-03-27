@@ -5,6 +5,12 @@ import gsap from "gsap";
 import sal from "sal.js";
 import "sal.js/dist/sal.css";
 
+import Swiper, { Navigation, Pagination, Grid } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/grid";
+
 import "./pug-files";
 import "../scss/style.scss";
 
@@ -89,16 +95,17 @@ window.addEventListener("DOMContentLoaded", () => {
   let windowWidth = window.innerWidth;
   let newFontSize = `${((windowWidth / layoutSize) * defaultFontSize).toFixed(4)}px`;
 
-  if (windowWidth >= 1201) {
-    html.setAttribute("style", `font-size: ${newFontSize}`);
-  }
-
+  // if (windowWidth >= 1201) {
+  //   html.setAttribute("style", `font-size: ${newFontSize}`);
+  // }
+  html.setAttribute("style", `font-size: ${newFontSize}`);
   window.addEventListener("resize", (event) => {
     windowWidth = event.target.innerWidth;
     newFontSize = `${((windowWidth / layoutSize) * defaultFontSize).toFixed(4)}px`;
-    if (windowWidth >= 1201) {
-      html.setAttribute("style", `font-size: ${newFontSize}`);
-    }
+    // if (windowWidth >= 1201) {
+    //   html.setAttribute("style", `font-size: ${newFontSize}`);
+    // }
+    html.setAttribute("style", `font-size: ${newFontSize}`);
   });
 
   // Good cards hover effect
@@ -198,6 +205,41 @@ window.addEventListener("DOMContentLoaded", () => {
         });
         isAnimationStared = false;
       });
+    });
+  }
+
+  const cardPromoSlider = document.querySelector("[data-slider='card-promo'] .swiper");
+
+  if (cardPromoSlider) {
+    const progressBar = document.querySelector(".card-promo__slider-progress-bar");
+    new Swiper(cardPromoSlider, {
+      slidesPerView: "auto",
+      modules: [Navigation, Pagination, Grid],
+      navigation: {
+        nextEl: '[data-slider="card-promo-next"]',
+        prevEl: '[data-slider="card-promo-prev"]',
+      },
+      pagination: {
+        el: '[data-slider="card-promo-pagination"]',
+        clickable: true,
+      },
+      breakpoints: {
+        769: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          grid: {
+            rows: 2,
+            fill: "row",
+          },
+        },
+      },
+      on: {
+        slideChange: function () {
+          if (window.innerWidth <= 768) {
+            progressBar.style.transform = `scaleX(${this.progress ? this.progress : 0.1})`;
+          }
+        },
+      },
     });
   }
 });

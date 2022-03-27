@@ -183,7 +183,7 @@
       font-size: 27px;
     }
     @include to(992px) {
-      margin-top: 30px;
+      margin-top: 25px;
       font-size: 43px;
     }
   }
@@ -215,7 +215,6 @@
     margin: toRem(60) auto 0 auto;
     width: 100%;
     max-width: toRem(440);
-    min-height: toRem(100);
     @include to(1200px) {
       margin-top: 40px;
       max-width: 260px;

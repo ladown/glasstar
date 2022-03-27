@@ -1,0 +1,419 @@
+.card-promo {
+  padding: toRem(80) toRem(65) 0 toRem(65);
+  @include to(1200px) {
+    padding: 50px 20px 0 20px;
+  }
+  @include to(768px) {
+    padding-top: 30px;
+  }
+  &__wrap {
+    position: relative;
+    display: grid;
+    grid-template-columns: toRem(590) toRem(450) toRem(590);
+    grid-template-rows: toRem(50) minmax(toRem(350), auto) minmax(toRem(120), auto);
+    justify-content: space-between;
+    gap: toRem(50) 0;
+    @include to(1200px) {
+      grid-template-rows: 30px minmax(240px, auto) minmax(75px, auto);
+      grid-template-columns: 33% 26% 33%;
+      gap: 30px 0;
+    }
+    @include to(992px) {
+      grid-template-columns: 35% 28% 35%;
+    }
+    @include to(768px) {
+      grid-template-columns: 100%;
+      gap: 0;
+      grid-template-rows: auto;
+      justify-content: initial;
+    }
+  }
+  &__back {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: toRem(140);
+    width: 100%;
+    font-weight: 350;
+    font-size: toRem(22);
+    line-height: toRem(36);
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    padding-bottom: 3px;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+      opacity: 0.6;
+      transition: opacity 0.3s ease-in-out;
+    }
+    @include to(1200px) {
+      max-width: 90px;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    @include to(768px) {
+      grid-column: initial;
+      grid-row: initial;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    @include to(576px) {
+      max-width: unset;
+      padding: 15px;
+      top: -15px;
+      left: -15px;
+      width: auto;
+    }
+    span {
+      @include to(576px) {
+        display: none;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #fff;
+      @include to(576px) {
+        display: none;
+      }
+    }
+  }
+  &__descr {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    @include to(768px) {
+      margin-top: 60px;
+      grid-column: 1 / 2;
+      grid-row: 5 / 6;
+    }
+    &-item {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #303030;
+      @include to(768px) {
+        border: none;
+      }
+      &:not(:last-child) {
+        @include to(768px) {
+          border-bottom: 1px solid #303030;
+        }
+      }
+      &:last-child {
+        @include to(768px) {
+          padding-bottom: 0 !important;
+        }
+      }
+      &:first-child {
+        padding-bottom: toRem(12);
+        @include to(1200px) {
+          padding-bottom: 12px;
+        }
+      }
+      &:not(:first-child) {
+        padding: toRem(12) 0;
+        @include to(1200px) {
+          padding: 12px 0;
+        }
+      }
+    }
+    &-key {
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: toRem(36);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-right: 15px;
+      @include to(1200px) {
+        font-size: 14px;
+        line-height: 22px;
+      }
+      @include to(768px) {
+        line-height: 36px;
+      }
+    }
+    &-value {
+      margin-left: 15px;
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: toRem(36);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        font-size: 14px;
+        line-height: 22px;
+      }
+      @include to(768px) {
+        line-height: 36px;
+      }
+    }
+  }
+  &__heading {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    @include to(1200px) {
+      align-self: flex-end;
+    }
+    @include to(768px) {
+      margin-top: 25px;
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+  }
+  &__subtitle {
+    font-weight: 350;
+    font-size: toRem(18);
+    line-height: toRem(36);
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 12px;
+      line-height: 22px;
+    }
+    @include to(992px) {
+      line-height: 100%;
+    }
+  }
+  &__title {
+    margin-top: 5px;
+    font-weight: 350;
+    font-size: toRem(74);
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 45px;
+    }
+    @include to(992px) {
+      font-size: 32px;
+    }
+  }
+  &__img {
+    display: block;
+    grid-column: 2 / 3;
+    grid-row: span 3;
+    img {
+      max-width: 100%;
+      width: 100%;
+    }
+    @include to(768px) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      width: 210px;
+      height: 308px;
+      margin: 0 auto;
+    }
+  }
+  &__slider {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+    position: relative;
+    @include to(768px) {
+      grid-column: 1 / 2;
+      grid-row: 3 / 4;
+      padding: 20px 0;
+      margin-top: 20px;
+    }
+    &::before,
+    &::after {
+      @include to(768px) {
+        content: "";
+        position: absolute;
+        left: -20px;
+        width: 100vw;
+        height: 1px;
+        background-color: #303030;
+      }
+    }
+    &::before {
+      @include to(768px) {
+        top: 0;
+      }
+    }
+    &::after {
+      @include to(768px) {
+        bottom: 0;
+      }
+    }
+    .swiper {
+      border-left: 1px solid #303030;
+      border-right: 1px solid #303030;
+      @include to(768px) {
+        border: none;
+      }
+      &::before,
+      &::after {
+        content: "";
+        z-index: 10;
+        position: absolute;
+        background-color: #303030;
+        @include to(768px) {
+          display: none;
+        }
+      }
+      &::before {
+        height: 1px;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      &::after {
+        height: 100%;
+        width: 1px;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%) rotate(180deg);
+      }
+    }
+    &-controls {
+      margin-top: toRem(40);
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      @include to(1200px) {
+        margin-top: 25px;
+      }
+      @include to(768px) {
+        margin-top: 0;
+        display: none;
+      }
+    }
+    &-btn {
+      display: flex;
+      padding: toRem(10);
+      transition: opacity 0.3s ease-in-out;
+      @include to(1200px) {
+        padding: 5px;
+      }
+      @include to(768px) {
+        display: none;
+      }
+      svg {
+        max-width: 100%;
+      }
+      &:hover {
+        opacity: 0.6;
+        transition: opacity 0.3s ease-in-out;
+      }
+      &.swiper-button-disabled {
+        cursor: not-allowed;
+        opacity: 0.4;
+        transition: opacity 0.3s ease-in-out;
+      }
+    }
+    &-pagination {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      margin: 0 toRem(60);
+      width: auto !important;
+      @include to(1200px) {
+        margin: 0 30px;
+      }
+      span.swiper-pagination-bullet {
+        margin: 0 toRem(15) !important;
+        opacity: 1;
+        background: #181818;
+        width: 9px;
+        height: 9px;
+        border-radius: 100%;
+        transition: background 0.3s ease-in-out;
+        @include to(1200px) {
+          margin: 0 9px !important;
+        }
+        &.swiper-pagination-bullet-active {
+          background: #fff;
+          transition: background 0.3s ease-in-out;
+        }
+      }
+    }
+    &-progress-bar {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: -20px;
+      width: 100vw;
+      transform: scaleX(0.1);
+      transform-origin: left top;
+      height: 2px;
+      background-color: #fff;
+      transition: transform 0.3s ease-in-out;
+      @include to(768px) {
+        display: block;
+      }
+    }
+  }
+  &__slide {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: toRem(20) 0;
+    @include to(1200px) {
+      padding: 12px 0;
+    }
+    @include to(992px) {
+      padding: 12px;
+    }
+    @include to(768px) {
+      padding: 0;
+      width: 110px;
+    }
+    &:not(:last-child) {
+      @include to(768px) {
+        margin-right: 14px;
+      }
+    }
+    &-img {
+      width: toRem(201);
+      height: toRem(155);
+      max-width: 100%;
+      @include to(1200px) {
+        width: 125px;
+        height: 96px;
+      }
+      @include to(992px) {
+        height: auto;
+      }
+    }
+    &-caption {
+      font-weight: 400;
+      font-size: toRem(22);
+      line-height: toRem(36);
+      text-align: center;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        font-size: 14px;
+        line-height: 22px;
+      }
+      @include to(992px) {
+        line-height: 100%;
+      }
+    }
+  }
+  &__btn {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    max-height: toRem(100);
+    align-self: flex-end;
+    @include to(1200px) {
+      max-height: 90px;
+    }
+    @include to(768px) {
+      grid-column: 1 / 2;
+      grid-row: 6 / 7;
+      margin-top: 20px;
+    }
+  }
+}

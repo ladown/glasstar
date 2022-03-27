@@ -1,0 +1,96 @@
+.card-descr {
+  padding: toRem(30) toRem(65) 0 toRem(65);
+  @include to(1200px) {
+    padding: 20px 20px 0 20px;
+  }
+  @include to(992px) {
+    padding-top: 40px;
+  }
+  &__wrap {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  &__item {
+    position: relative;
+    padding: toRem(80) 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include to(1200px) {
+      padding: 50px 0;
+    }
+    @include to(992px) {
+      padding: 40px 0;
+    }
+    @include to(768px) {
+      flex-flow: column nowrap;
+      align-items: initial;
+      justify-content: initial;
+    }
+    &:last-child {
+      padding-bottom: 0;
+    }
+    &:not(:first-child) {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: toRem(-65);
+        width: 100vw;
+        height: 1px;
+        background-color: #303030;
+        @include to(1200px) {
+          left: -20px;
+        }
+      }
+    }
+    &-key {
+      font-weight: 350;
+      font-size: toRem(35);
+      line-height: toRem(39);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      flex: 0 1 auto;
+      margin-right: 15px;
+      color: rgba(255, 255, 255, 0.6);
+      @include to(1200px) {
+        font-size: 22px;
+        line-height: 24px;
+      }
+      @include to(992px) {
+        font-size: 28px;
+        line-height: 39px;
+      }
+      @include to(768px) {
+        flex: auto;
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+    &-value {
+      margin-left: 15px;
+      flex: 0 1 toRem(590);
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: toRem(28);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        flex: 0 1 370px;
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @include to(992px) {
+        font-size: 16px;
+        line-height: 28px;
+      }
+      @include to(768px) {
+        flex: auto;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  }
+}

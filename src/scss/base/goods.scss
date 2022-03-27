@@ -6,7 +6,13 @@
       padding: 120px 20px 60px 20px;
     }
     @include to(992px) {
-      padding: 80px 20px 40px 20px;
+      padding: 100px 20px 55px 20px;
+    }
+    @include to(768px) {
+      padding: 80px 20px 50px 20px;
+    }
+    @include to(576px) {
+      padding: 65px 20px 40px 20px;
     }
   }
   .catalog-promo & {
@@ -78,7 +84,7 @@
     padding: toRem(50) 0 toRem(10) 0;
     border-bottom: 1px solid #303030;
     @include to(1200px) {
-      padding: 10px 0 22px 0;
+      padding: 15px 0 22px 0;
     }
     &:not(:last-child) {
       margin-bottom: toRem(20);
@@ -111,7 +117,7 @@
       font-size: toRem(22);
       line-height: toRem(25);
       letter-spacing: -0.03em;
-      color: #ffffff;
+      color: rgba(255, 255, 255, 0.6);
       z-index: -1;
       @include to(1200px) {
         font-size: 14px;

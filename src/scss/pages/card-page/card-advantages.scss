@@ -1,0 +1,61 @@
+.card-advantages {
+  padding: toRem(140) toRem(65) 0 toRem(65);
+  @include to(1200px) {
+    padding: 85px 20px 0 20px;
+  }
+  @include to(992px) {
+    padding-top: 70px;
+  }
+  &__wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: toRem(85);
+    @include to(1200px) {
+      gap: 50px;
+    }
+    @include to(992px) {
+      gap: 25px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include to(576px) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-flow: column nowrap;
+    &-header {
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: toRem(28);
+      letter-spacing: -0.03em;
+      color: rgba(255, 255, 255, 0.6);
+      @include to(1200px) {
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @include to(992px) {
+        font-size: 19px;
+        line-height: 24px;
+      }
+    }
+    &-subheader {
+      margin-top: 12px;
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: toRem(28);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @include to(992px) {
+        margin-top: 10px;
+        font-size: 19px;
+        line-height: 24px;
+      }
+    }
+  }
+}

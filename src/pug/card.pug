@@ -1,0 +1,13 @@
+extends inc/layout.pug
+
+include inc/settings.pug
+
+block append variables
+  - bodyClass = "card-page";
+
+block content
+  include parts/card-page/card-promo.pug
+  include parts/card-page/card-descr.pug
+  include parts/card-page/card-preview.pug
+  include parts/card-page/card-advantages.pug
+  +catalog('Популярное')
