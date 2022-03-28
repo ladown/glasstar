@@ -1,0 +1,47 @@
+extends inc/layout.pug
+
+include inc/settings.pug
+
+block append variables
+  - bodyClass = "contact-page";
+
+block content
+  section.contact
+    .contact__wrap 
+      h1.contact__title контакты
+      .contact__info 
+        .contact__links 
+          a.contact__link(href="tel:+88005008538" data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine") 8 800 500 85 38
+          a.contact__link(href="tel:+74924123503" data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine") +7 492 412 35 03
+          a.contact__link(href="tel:+79157934941" data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine") +7 915 793 49 41
+          a.contact__link(href="mailto:zavod@glasstar.ru" data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine") zavod@glasstar.ru
+        .contact__offices
+          .contact__office(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+            .contact__office-label ОФИС
+            address.contact__office-addr Москва, Кузнецкий мост д.21/5, 4 подъезд, 4 этаж, ком. 4030
+          .contact__office(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+            .contact__office-label ЗАВОД
+            address.contact__office-addr 
+              | 601503, Россия, Владимирская обл.
+              br 
+              | г. Гусь-Хрустальный, ул. Интернациональная, д. 124
+      .contact__form 
+        p.contact__form-text(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine") Напишите нам по вопросам оптовых закупок, индивидуального заказа и другим.
+        h2.contact__form-title(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine") перезвоните мне
+        form(action="#") 
+          .contact__form-fields(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+            input.contact__form-input(type="text" name="name" placeholder="Имя")
+            input.contact__form-input(type="tel" name="phone" placeholder="Телефон")
+            textarea.contact__form-textarea(name="comment" cols="30" rows="10" placeholder="Сообщение")
+          .contact__form-footer
+            label.contact__form-checkbox(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+              input(type="checkbox" name="policy")
+              span.contact__form-checkbox-checkmark
+              span.contact__form-checkbox-text даю своё согласие на обработку персональных данных
+            button.contact__form-btn.button(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine")
+              span Перезвоните мне
+              svg(width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg")
+                path(d="M0.717518 15.8597L14.8597 1.71753M14.8597 1.71753H1.42462M14.8597 1.71753V15.1526" stroke="white" stroke-width="2")
+    picture.contact__bg 
+      source(srcset=`${imgPath}contact-page/contact-promo/contact-promo-bg-mob.png` media="(max-width: 576px)")
+      img(src=`${imgPath}contact-page/contact-promo/contact-promo-bg.png` alt="contact-promo-bg")

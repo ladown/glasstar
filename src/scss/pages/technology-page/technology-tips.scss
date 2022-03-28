@@ -1,0 +1,103 @@
+.technology-tips {
+  padding: toRem(100) toRem(65) 0 toRem(65);
+  @include to(1200px) {
+    padding: 60px 20px 0 20px;
+  }
+  @include to(992px) {
+    padding-top: 40px;
+  }
+  &__wrap {
+    width: 100%;
+    max-width: toRem(900);
+    margin-left: auto;
+    @include to(1200px) {
+      max-width: 560px;
+    }
+  }
+  &__title {
+    font-weight: 350;
+    font-size: toRem(60);
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 37.5px;
+    }
+    @include to(992px) {
+      font-size: 34px;
+    }
+    @include to(768px) {
+      font-size: 31px;
+    }
+    @include to(576px) {
+      font-size: 28px;
+    }
+  }
+  &__items {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-top: toRem(40);
+    @include to(1200px) {
+      margin-top: 25px;
+    }
+    @include to(992px) {
+      margin-top: 15px;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-flow: column nowrap;
+    @include to(576px) {
+      flex-flow: row nowrap;
+    }
+    &:not(:last-child) {
+      margin-bottom: toRem(40);
+      @include to(1200px) {
+        margin-bottom: 25px;
+      }
+      @include to(992px) {
+        margin-bottom: 15px;
+      }
+    }
+    &-counter {
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: toRem(25);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      @include to(576px) {
+        margin: 5px 5px 0 0;
+        font-size: 10px;
+        line-height: 100%;
+        min-width: 15px;
+      }
+    }
+    &-text {
+      margin-top: 10px;
+      font-weight: 400;
+      font-size: toRem(35);
+      line-height: toRem(39);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        font-size: 22px;
+        line-height: 24px;
+      }
+      @include to(992px) {
+        font-size: 20px;
+        line-height: 21px;
+      }
+      @include to(768px) {
+        font-size: 18px;
+      }
+      @include to(576px) {
+        margin-top: 0;
+        font-size: 16px;
+      }
+    }
+  }
+}

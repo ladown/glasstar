@@ -1,0 +1,425 @@
+.contact {
+  padding: toRem(75) toRem(65) 0 toRem(65);
+  position: relative;
+  z-index: 1;
+  @include to(1200px) {
+    padding: 45px 20px 0 20px;
+  }
+  &__title {
+    font-weight: 350;
+    font-size: toRem(120);
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    text-transform: lowercase;
+    color: #ffffff;
+    text-align: center;
+    @include to(1200px) {
+      font-size: 75px;
+    }
+    @include to(992px) {
+      font-size: 60px;
+    }
+    @include to(576px) {
+      text-align: left;
+    }
+    @include to(360px) {
+      font-size: 50px;
+    }
+  }
+  &__info {
+    margin: toRem(160) auto 0 auto;
+    width: 100%;
+    max-width: toRem(950);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    @include to(1200px) {
+      margin-top: 100px;
+      max-width: 600px;
+    }
+    @include to(992px) {
+      margin-top: 70px;
+    }
+    @include to(768px) {
+      margin-top: 40px;
+    }
+    @include to(576px) {
+      margin-top: 32px;
+      flex-flow: column-reverse nowrap;
+      justify-content: initial;
+    }
+  }
+  &__links {
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    margin-right: 15px;
+    @include to(992px) {
+      justify-content: space-between;
+    }
+    @include to(576px) {
+      margin-right: 0;
+      margin-top: 32px;
+      align-items: flex-start;
+      flex: auto;
+      width: 100%;
+    }
+  }
+  &__link {
+    font-weight: 350;
+    font-size: toRem(35);
+    line-height: toRem(39);
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    transition: opacity 0.3s ease-in-out;
+    @include to(1200px) {
+      font-size: 22px;
+      line-height: 24px;
+    }
+    @include to(576px) {
+      font-size: 28px;
+      line-height: 39px;
+    }
+    &:hover,
+    &:focus {
+      opacity: 0.6;
+      transition: opacity 0.3s ease-in-out;
+    }
+    &:not(:last-child) {
+      margin-bottom: toRem(40);
+      @include to(1200px) {
+        margin-bottom: 25px;
+      }
+      @include to(992px) {
+        margin-bottom: 20px;
+      }
+      @include to(768px) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+  &__offices {
+    flex: 0 1 toRem(430);
+    display: flex;
+    flex-flow: column nowrap;
+    margin-left: 15px;
+    justify-content: space-between;
+    @include to(1200px) {
+      flex: 0 1 270px;
+    }
+    @include to(576px) {
+      flex: auto;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  &__office {
+    display: flex;
+    flex-flow: column nowrap;
+    &:not(:last-child) {
+      margin-bottom: toRem(15);
+      @include to(1200px) {
+        margin-bottom: 10px;
+      }
+      @include to(576px) {
+        margin-bottom: 24px;
+      }
+    }
+    &-label {
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: toRem(30);
+      letter-spacing: -0.03em;
+      text-transform: lowercase;
+      color: rgba(255, 255, 255, 0.6);
+      @include to(1200px) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+    &-addr {
+      margin-top: toRem(22);
+      font-style: normal;
+      font-weight: 400;
+      font-size: toRem(22);
+      line-height: toRem(28);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+  &__form {
+    margin: toRem(150) auto 0 auto;
+    width: 100%;
+    max-width: toRem(950);
+    display: flex;
+    flex-flow: column nowrap;
+    @include to(1200px) {
+      margin-top: 90px;
+      max-width: 600px;
+    }
+    @include to(992px) {
+      margin-top: 80px;
+    }
+    @include to(768px) {
+      margin-top: 70px;
+    }
+    @include to(576px) {
+      margin-top: 60px;
+    }
+    &-text {
+      width: 100%;
+      max-width: toRem(450);
+      margin: 0 auto;
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: toRem(28);
+      text-align: center;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        max-width: 290px;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+    &-title {
+      margin-top: toRem(20);
+      font-weight: 350;
+      font-size: toRem(120);
+      line-height: 100%;
+      letter-spacing: -0.05em;
+      text-transform: lowercase;
+      color: #ffffff;
+      text-align: center;
+      @include to(1200px) {
+        margin-top: 12px;
+        font-size: 75px;
+      }
+      @include to(992px) {
+        margin-top: 15px;
+        font-size: 60px;
+      }
+      @include to(768px) {
+        font-size: 45px;
+      }
+      @include to(576px) {
+        font-size: 40px;
+      }
+      @include to(375px) {
+        font-size: 35px;
+      }
+    }
+    form {
+      margin-top: toRem(60);
+      @include to(1200px) {
+        margin-top: 35px;
+      }
+      @include to(992px) {
+        margin-top: 50px;
+      }
+      @include to(768px) {
+        margin-top: 60px;
+      }
+      @include to(576px) {
+        margin-top: 70px;
+      }
+    }
+    &-fields {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: toRem(100) toRem(20);
+      @include to(1200px) {
+        gap: 60px 15px;
+      }
+      @include to(992px) {
+        gap: 45px 20px;
+      }
+      @include to(768px) {
+        gap: 35px 20px;
+      }
+      @include to(576px) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    &-input,
+    &-textarea {
+      outline: none;
+      background: transparent;
+      border: none;
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: toRem(36);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #303030;
+      transition: border 0.3s;
+      @include to(1200px) {
+        font-size: 16px;
+        line-height: 20px;
+      }
+      @include to(992px) {
+        font-size: 18px;
+        line-height: 22px;
+      }
+      @include to(768px) {
+        font-size: 20px;
+        line-height: 24px;
+      }
+      @include to(576px) {
+        font-size: 22px;
+        line-height: 36px;
+      }
+      &:focus {
+        border-color: #fff;
+        transition: border 0.3s;
+      }
+      &::placeholder {
+        color: #303030;
+      }
+    }
+    &-textarea {
+      resize: none;
+      height: 40px;
+      grid-column: span 2;
+      @include to(576px) {
+        grid-column: initial;
+      }
+    }
+    &-footer {
+      margin-top: toRem(60);
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      @include to(1200px) {
+        margin-top: 35px;
+      }
+      @include to(992px) {
+        margin-top: 32px;
+      }
+      @include to(576px) {
+        flex-flow: column-reverse nowrap;
+        align-items: initial;
+        justify-content: initial;
+      }
+    }
+    &-checkbox {
+      cursor: pointer;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      position: relative;
+      flex: 0 1 toRem(350);
+      margin-right: 15px;
+      @include to(1200px) {
+        flex: 0 1 250px;
+      }
+      @include to(576px) {
+        align-items: center;
+        margin-top: 24px;
+        flex: auto;
+        width: 100%;
+      }
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        &:checked ~ .contact__form-checkbox-checkmark::before {
+          opacity: 1;
+          transition: opacity 0.3s;
+        }
+      }
+      &-checkmark {
+        flex: 0 0 toRem(28);
+        margin-right: 15px;
+        position: relative;
+        width: toRem(28);
+        height: toRem(28);
+        border: 1px solid #303030;
+        background: transparent;
+        @include to(1200px) {
+          flex: 0 0 15px;
+          width: 15px;
+          height: 15px;
+        }
+        @include to(576px) {
+          flex: 0 0 32px;
+          width: 32px;
+          height: 32px;
+        }
+        &::before {
+          content: "";
+          width: toRem(10);
+          height: toRem(10);
+          background-color: #fff;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          opacity: 0;
+          transition: opacity 0.3s;
+          @include to(1200px) {
+            width: 6.25px;
+            height: 6.25px;
+          }
+          @include to(576px) {
+            width: 10px;
+            height: 10px;
+          }
+        }
+      }
+      &-text {
+        flex: 0 1 100%;
+        font-weight: 350;
+        font-size: toRem(18);
+        line-height: toRem(21);
+        letter-spacing: -0.03em;
+        text-transform: lowercase;
+        color: rgba(255, 255, 255, 0.6);
+        @include to(1200px) {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+    &-btn {
+      flex: 0 1 toRem(450);
+      @include to(1200px) {
+        flex: 0 1 290px;
+      }
+      @include to(992px) {
+        flex: 0 1 260px;
+      }
+      @include to(576px) {
+        flex: auto;
+        width: 100%;
+      }
+    }
+  }
+  &__bg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    img {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}

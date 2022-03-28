@@ -1,0 +1,11 @@
+extends inc/layout.pug
+
+include inc/settings.pug
+
+block append variables
+  - bodyClass = "technology-page";
+
+block content
+  include parts/technology-page/technology-promo.pug
+  include parts/technology-page/technology-text.pug
+  include parts/technology-page/technology-tips.pug

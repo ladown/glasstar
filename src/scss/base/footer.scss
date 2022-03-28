@@ -41,6 +41,51 @@
       padding: 60px 20px 35px 20px;
     }
   }
+  .technology-page & {
+    padding: toRem(160) toRem(65) toRem(120) toRem(65);
+    @include to(1200px) {
+      padding: 100px 20px 75px 20px;
+    }
+    @include to(992px) {
+      padding: 85px 20px 60px 20px;
+    }
+    @include to(768px) {
+      padding: 70px 20px 45px 20px;
+    }
+    @include to(576px) {
+      padding: 60px 20px 35px 20px;
+    }
+  }
+  .about-page & {
+    padding: toRem(200) toRem(65) toRem(120) toRem(65);
+    @include to(1200px) {
+      padding: 125px 20px 75px 20px;
+    }
+    @include to(992px) {
+      padding: 100px 20px 60px 20px;
+    }
+    @include to(768px) {
+      padding: 80px 20px 45px 20px;
+    }
+    @include to(576px) {
+      padding: 60px 20px 35px 20px;
+    }
+  }
+  .contact-page & {
+    padding: toRem(240) toRem(65) toRem(120) toRem(65);
+    @include to(1200px) {
+      padding: 150px 20px 75px 20px;
+    }
+    @include to(992px) {
+      padding: 120px 20px 60px 20px;
+    }
+    @include to(768px) {
+      padding: 90px 20px 45px 20px;
+    }
+    @include to(576px) {
+      padding: 65px 20px 35px 20px;
+    }
+  }
   &__wrap {
     position: relative;
     padding-top: toRem(60);

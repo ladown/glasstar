@@ -1,0 +1,10 @@
+include ../../inc/settings.pug
+
+section.technology-promo
+  .technology-promo__wrap 
+    h1.technology-promo__title(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") технология
+    p.technology-promo__subtitle(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") Нанесение декоративных покрытий цветными и драгоценными металлами осуществляется с помощью дугового разряда, который горит в вакуумной камере, между двух электродов: охлаждаемого катода и анода непосредственно в парах распыляемого материала.
+    p.technology-promo__text(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") Высочайшее качество продукции, современные технологии производства и интересные дизайнерские решения – вот секрет успеха «ГЛАССТАР».
+  picture.technology-promo__bg
+    source(srcset=`${imgPath}technology-page/technology-promo/technology-promo-bg-mob.png` media="(max-width: 576px)")
+    img(src=`${imgPath}technology-page/technology-promo/technology-promo-bg.png` alt="technology-promo-bg")

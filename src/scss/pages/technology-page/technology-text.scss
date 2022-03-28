@@ -1,0 +1,48 @@
+.technology-text {
+  padding: toRem(100) toRem(65) 0 toRem(65);
+  @include to(1200px) {
+    padding: 60px 20px 0 20px;
+  }
+  &__wrap {
+    margin-left: auto;
+    width: 100%;
+    max-width: toRem(900);
+    @include to(1200px) {
+      max-width: 560px;
+    }
+  }
+  &__descr {
+    text-indent: toRem(150);
+    font-weight: 350;
+    font-size: toRem(35);
+    line-height: toRem(39);
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      text-indent: 90px;
+      font-size: 22px;
+      line-height: 24px;
+    }
+    @include to(992px) {
+      font-size: 20px;
+      line-height: 21px;
+      text-indent: 60px;
+    }
+    @include to(768px) {
+      font-size: 18px;
+      text-indent: 30px;
+    }
+    @include to(576px) {
+      font-size: 16px;
+    }
+  }
+  &__btn {
+    margin-top: toRem(80);
+    @include to(1200px) {
+      margin-top: 50px;
+    }
+    @include to(992px) {
+      margin-top: 40px;
+    }
+  }
+}

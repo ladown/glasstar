@@ -1,0 +1,151 @@
+.about-promo {
+  padding: toRem(75) toRem(65) toRem(50) toRem(65);
+  position: relative;
+  z-index: 1;
+  @include to(1200px) {
+    padding: 45px 20px 30px 20px;
+  }
+  @include to(992px) {
+    padding: 35px 20px 25px 20px;
+  }
+  @include to(768px) {
+    padding: 25px 20px 20px 20px;
+  }
+  &__title {
+    font-weight: 350;
+    font-size: toRem(120);
+    line-height: 100%;
+    letter-spacing: -0.05em;
+    text-transform: lowercase;
+    color: #ffffff;
+    text-align: center;
+    @include to(1200px) {
+      font-size: 75px;
+    }
+    @include to(992px) {
+      font-size: 60px;
+    }
+    @include to(576px) {
+      text-align: left;
+    }
+    @include to(360px) {
+      font-size: 50px;
+    }
+  }
+  &__subtitle {
+    width: 100%;
+    max-width: toRem(900);
+    text-indent: toRem(150);
+    margin: toRem(120) 0 0 auto;
+    font-weight: 350;
+    font-size: toRem(35);
+    line-height: toRem(39);
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      max-width: 560px;
+      text-indent: 90px;
+      margin-top: 75px;
+      font-size: 22px;
+      line-height: 24px;
+    }
+    @include to(992px) {
+      font-size: 20px;
+      line-height: 21px;
+      margin-top: 60px;
+      text-indent: 60px;
+    }
+    @include to(768px) {
+      font-size: 18px;
+      margin-top: 45px;
+      text-indent: 30px;
+    }
+    @include to(576px) {
+      font-size: 16px;
+      margin-top: 32px;
+    }
+  }
+  &__items {
+    margin-top: toRem(100);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(toRem(320), auto);
+    gap: toRem(20);
+    @include to(1200px) {
+      margin-top: 60px;
+      gap: 15px;
+      grid-auto-rows: minmax(200px, auto);
+    }
+    @include to(992px) {
+      margin-top: 50px;
+      grid-auto-rows: minmax(180px, auto);
+      gap: 10px;
+    }
+    @include to(810px) {
+      margin-top: 40px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  &__item {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: toRem(40) toRem(35);
+    background: transparent;
+    border: 1px solid #303030;
+    @include to(1200px) {
+      padding: 25px 20px;
+    }
+    @include to(992px) {
+      padding: 20px 15px;
+    }
+    @include to(768px) {
+      padding: 15px;
+    }
+    &-key {
+      margin-bottom: 15px;
+      font-weight: 350;
+      font-size: toRem(60);
+      line-height: 100%;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        font-size: 37.5px;
+      }
+      @include to(992px) {
+        font-size: 32px;
+        line-height: 39px;
+      }
+    }
+    &-value {
+      margin-top: 15px;
+      font-weight: 400;
+      font-size: toRem(22);
+      line-height: toRem(30);
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      @include to(1200px) {
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @include to(992px) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+  &__bg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    img {
+      display: block;
+      max-width: 100%;
+      @include cover;
+    }
+  }
+}

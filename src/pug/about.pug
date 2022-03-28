@@ -1,0 +1,10 @@
+extends inc/layout.pug
+
+include inc/settings.pug
+
+block append variables
+  - bodyClass = "about-page";
+
+block content
+  include parts/about-page/about-promo.pug
+  include parts/about-page/about-text.pug
