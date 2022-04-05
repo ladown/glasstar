@@ -1,16 +1,3 @@
-@import "./base/functions.scss";
-@import "./library/breakpoints";
-
-@keyframes slideInRightLoader {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 .loader {
   position: fixed;
   top: 0;

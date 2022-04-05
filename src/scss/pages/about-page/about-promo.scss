@@ -103,13 +103,14 @@
       padding: 15px;
     }
     &-key {
-      margin-bottom: 15px;
+      margin-bottom: toRem(15);
       font-weight: 350;
       font-size: toRem(60);
       line-height: 100%;
       letter-spacing: -0.03em;
       color: #ffffff;
       @include to(1200px) {
+        margin-bottom: 15px;
         font-size: 37.5px;
       }
       @include to(992px) {
@@ -118,13 +119,14 @@
       }
     }
     &-value {
-      margin-top: 15px;
-      font-weight: 400;
+      margin-top: toRem(15);
+      font-weight: 350;
       font-size: toRem(22);
       line-height: toRem(30);
       letter-spacing: -0.03em;
       color: #ffffff;
       @include to(1200px) {
+        margin-top: 15px;
         font-size: 14px;
         line-height: 18px;
       }

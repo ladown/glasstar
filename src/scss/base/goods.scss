@@ -93,6 +93,7 @@
       }
     }
     &-caption {
+      flex: 0 1 auto;
       pointer-events: none;
       min-width: toRem(350);
       font-weight: 350;
@@ -112,6 +113,7 @@
       }
     }
     &-count {
+      flex: 0 1 auto;
       pointer-events: none;
       font-weight: 350;
       font-size: toRem(22);
@@ -129,9 +131,14 @@
     }
     &-arrow {
       pointer-events: none;
-      width: 20px;
+      width: toRem(20);
+      flex: 0 0 toRem(20);
       height: auto;
       z-index: -1;
+      @include to(1200px) {
+        width: 20px;
+        flex: 0 0 20px;
+      }
     }
     &-img {
       pointer-events: none;

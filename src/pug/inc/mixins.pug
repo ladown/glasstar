@@ -17,3 +17,31 @@ mixin catalog(title, subtitle)
               a.catalog__item-caption(href="/card.html" data-link="redirect") Golden bro
               p.catalog__item-descr Для красного вина
           - n++;
+
+mixin modal(title, good)
+  if good
+    section.modal.modal-good(data-modal="block")
+      .modal__wrap
+        button.modal__close(data-modal="close-btn")
+          img(src=`${imgPath}modal/close-icon.svg` alt="close-icon")
+        h2.modal__title #{ title }
+        .modal__img 
+          img(src=`${imgPath}modal/good-img.png` alt="good-img")
+        form.modal__form
+          input.input(type="text" name="name" placeholder="Имя")
+          input.input(type="tel" name="phone" inputmode="tel" placeholder="Телефон")
+          button 
+            span Перезвоните мне
+            img(src=`${imgPath}modal/arrow-to-right.svg` alt="arrow-icon")
+  else
+    section.modal(data-modal="block")
+      .modal__wrap
+        button.modal__close(data-modal="close-btn")
+          img(src=`${imgPath}modal/close-icon.svg` alt="close-icon")
+        h2.modal__title перезвоните мне
+        form.modal__form
+          input.input(type="text" name="name" placeholder="Имя")
+          input.input(type="tel" name="phone" inputmode="tel" placeholder="Телефон")
+          button 
+            span Перезвоните мне
+            img(src=`${imgPath}modal/arrow-to-right.svg` alt="arrow-icon")

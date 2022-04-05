@@ -10,10 +10,7 @@ const srcPugFiles = fs.readdirSync(`${paths.pug}`);
 srcPugFiles.forEach((s) => s.endsWith(".pug") && pugTemplates.push(s));
 
 module.exports = {
-  entry: {
-    loader: `${paths.src}/js/loader.js`,
-    main: ["@babel/polyfill", `${paths.src}/js/index.js`],
-  },
+  entry: ["@babel/polyfill", `${paths.src}/js/index.js`],
   output: {
     path: paths.build,
     filename: "js/[name].js",

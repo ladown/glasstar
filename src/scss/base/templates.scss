@@ -12,8 +12,7 @@
   letter-spacing: -0.03em;
   text-transform: lowercase;
   color: #ffffff;
-  transition: background-color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715), color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715),
-    opacity 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
+  transition: background-color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715), color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715), opacity 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
   @include to(1200px) {
     padding: 14px;
     font-size: 17px;
@@ -40,11 +39,52 @@
   }
   svg {
     margin-bottom: auto;
-    flex: 0 0 20px;
-    width: 20px;
+    flex: 0 0 toRem(20);
+    width: toRem(20);
     height: auto;
+    @include to(1200px) {
+      flex: 0 0 20px;
+      width: 20px;
+    }
   }
   path {
     transition: stroke 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
+  }
+}
+
+.input {
+  outline: none;
+  background: transparent;
+  border: none;
+  font-weight: 350;
+  font-size: toRem(22);
+  line-height: toRem(36);
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  padding-bottom: toRem(10);
+  border-bottom: 1px solid #303030;
+  transition: border 0.3s;
+  @include to(1200px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @include to(992px) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  @include to(768px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  @include to(576px) {
+    font-size: 22px;
+    line-height: 36px;
+  }
+  &:focus {
+    border-color: #fff;
+    transition: border 0.3s;
+  }
+  &::placeholder {
+    color: #303030;
   }
 }

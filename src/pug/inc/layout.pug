@@ -12,3 +12,7 @@ html(lang="ru" dir="ltr")
     main.content
       block content
       include footer.pug
+    if (bodyClass !== 'card-page')
+      +modal('перезвоните мне')
+    else if (bodyClass === 'card-page')
+      +modal('Moon Space', true)

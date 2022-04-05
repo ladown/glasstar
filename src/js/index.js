@@ -5,6 +5,8 @@ import gsap from "gsap";
 import sal from "sal.js";
 import "sal.js/dist/sal.css";
 
+import Scrollbar from "smooth-scrollbar";
+
 import Swiper, { Navigation, Pagination, Grid } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -19,13 +21,177 @@ window.addEventListener("DOMContentLoaded", () => {
   const html = document.documentElement;
   const body = document.body;
   const mainContent = document.querySelector("main.content");
+  const header = document.querySelector('[data-header="block"]');
 
   // Show elements on scrolling
+
   sal({ threshold: 0.2 });
 
-  // Mobile menu opening
+  // Scroll variable
 
-  const header = document.querySelector('[data-header="block"]');
+  let scrollbar = null;
+
+  // Setting font size on resize
+
+  const layoutSize = 1920;
+  const defaultFontSize = 18;
+  let windowWidth = window.innerWidth;
+  let newFontSize = `${((windowWidth / layoutSize) * defaultFontSize).toFixed(4)}px`;
+
+  html.setAttribute("style", `font-size: ${newFontSize}`);
+  window.addEventListener("resize", (event) => {
+    windowWidth = event.target.innerWidth;
+    newFontSize = `${((windowWidth / layoutSize) * defaultFontSize).toFixed(4)}px`;
+    html.setAttribute("style", `font-size: ${newFontSize}`);
+  });
+
+  // Loader
+
+  const imagesToLoad = mainContent.querySelectorAll("img");
+  const countImagesToLoad = imagesToLoad.length;
+
+  let loadingProgress = 0;
+  let loadedItems = 0;
+  const percentForPerImage = 100 / countImagesToLoad;
+
+  const loaderBlock = document.querySelector('[data-loader="block"]');
+  const loaderBlockPercents = document.querySelector('[data-loader="percents"]');
+
+  if (imagesToLoad.length) {
+    imagesToLoad.forEach((el) => {
+      if (el) {
+        let image = new Image();
+        image.src = el.src;
+        image.onload = loadImage;
+        image.onerror = (e) => {
+          console.log(e);
+        };
+      } else {
+        console.error("Unexpected element");
+      }
+    });
+  } else {
+    destroyLoader();
+  }
+
+  function loadImage() {
+    loadingProgress += percentForPerImage;
+    loadedItems++;
+    if (loadingProgress === 100 || loadedItems === countImagesToLoad) {
+      loaderBlockPercents.textContent = Math.round(loadingProgress);
+      setTimeout(() => {
+        destroyLoader();
+      }, 500);
+    } else {
+      loaderBlockPercents.textContent = Math.round(loadingProgress);
+    }
+  }
+
+  function destroyLoader() {
+    gsap.to(loaderBlock, {
+      translateY: "100%",
+      ease: "slow(0.1, 0.7, false)",
+      duration: 0.5,
+      onStart: function () {
+        gsap.to([header, mainContent], {
+          display: "block",
+          opacity: 1,
+          duration: 0.3,
+          delay: 0.1,
+          ease: "power1.in",
+        });
+      },
+      onComplete: function () {
+        gsap.to(loaderBlock, { display: "none" });
+        scrollbar = Scrollbar.init(mainContent);
+      },
+    });
+  }
+
+  const redirectedLinks = document.querySelectorAll('[data-link="redirect"]');
+  redirectedLinks.forEach((link) => {
+    let loadingProgress = 0;
+    let loadedItems = 0;
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      const pageLink = this.getAttribute("href");
+      loaderBlockPercents.textContent = "0";
+      try {
+        fetch(pageLink)
+          .then((val) => {
+            if (val.ok) {
+              val.text().then((htmlResponse) => {
+                const html = document.createElement("html");
+                html.innerHTML = htmlResponse;
+                gsap.to([header, mainContent], {
+                  opacity: 0,
+                  duration: 0.3,
+                  ease: "power1.out",
+                  onComplete: function () {
+                    gsap.to([header, mainContent], {
+                      display: "none",
+                      duration: 0.05,
+                      onStart: function () {
+                        gsap.to(loaderBlock, {
+                          display: "block",
+                          duration: 0.05,
+                          onComplete: function () {
+                            gsap.to(loaderBlock, {
+                              translateY: 0,
+                              ease: "slow(0.1, 0.7, false)",
+                              duration: 0.2,
+                              onComplete: function () {
+                                const imagesToLoad = html.querySelectorAll("main.content img");
+                                const countImagesToLoad = imagesToLoad.length;
+                                const percentForPerImage = 100 / countImagesToLoad;
+                                if (imagesToLoad.length) {
+                                  imagesToLoad.forEach((el) => {
+                                    if (el) {
+                                      let image = new Image();
+                                      image.src = el.src;
+                                      image.onload = () => {
+                                        loadingProgress += percentForPerImage;
+                                        loadedItems++;
+                                        if (loadingProgress === 100 || loadedItems === countImagesToLoad) {
+                                          loaderBlockPercents.textContent = Math.round(loadingProgress);
+                                          location.href = pageLink;
+                                        } else {
+                                          loaderBlockPercents.textContent = Math.round(loadingProgress);
+                                        }
+                                      };
+                                      image.onerror = () => {
+                                        throw new Error("Something went wrong");
+                                      };
+                                    } else {
+                                      throw new Error("Unexpected element");
+                                    }
+                                  });
+                                } else {
+                                  location.href = pageLink;
+                                }
+                              },
+                            });
+                          },
+                        });
+                      },
+                    });
+                  },
+                });
+              });
+            } else {
+              location.href = pageLink;
+            }
+          })
+          .catch(() => {
+            location.href = pageLink;
+          });
+      } catch (error) {
+        location.href = pageLink;
+      }
+    });
+  });
+
+  // Mobile menu opening
   const headerMenu = document.querySelector('[data-header="menu"]');
 
   header.addEventListener("click", function (event) {
@@ -57,8 +223,8 @@ window.addEventListener("DOMContentLoaded", () => {
             body.style.height = "100vh";
             mainContent.style.display = "none";
             gsap.to(headerMenu, {
-              ease: "power1.in",
               display: "flex",
+              ease: "power1.in",
               opacity: 1,
               duration: 0.3,
             });
@@ -86,26 +252,6 @@ window.addEventListener("DOMContentLoaded", () => {
         },
       });
     }
-  });
-
-  // Setting font size on resize
-
-  const layoutSize = 1920;
-  const defaultFontSize = 18;
-  let windowWidth = window.innerWidth;
-  let newFontSize = `${((windowWidth / layoutSize) * defaultFontSize).toFixed(4)}px`;
-
-  // if (windowWidth >= 1201) {
-  //   html.setAttribute("style", `font-size: ${newFontSize}`);
-  // }
-  html.setAttribute("style", `font-size: ${newFontSize}`);
-  window.addEventListener("resize", (event) => {
-    windowWidth = event.target.innerWidth;
-    newFontSize = `${((windowWidth / layoutSize) * defaultFontSize).toFixed(4)}px`;
-    // if (windowWidth >= 1201) {
-    //   html.setAttribute("style", `font-size: ${newFontSize}`);
-    // }
-    html.setAttribute("style", `font-size: ${newFontSize}`);
   });
 
   // Good cards hover effect
@@ -240,6 +386,60 @@ window.addEventListener("DOMContentLoaded", () => {
           }
         },
       },
+    });
+  }
+
+  const modal = document.querySelector('[data-modal="block"]');
+  const openModalBtns = document.querySelectorAll('[data-modal="open-btn"]');
+
+  if (modal && openModalBtns.length) {
+    const modalTitle = modal.querySelector(".modal__title");
+    modal.addEventListener("click", function (event) {
+      if (event.target && event.target.dataset.modal === "close-btn") {
+        gsap.to(this, {
+          opacity: 0,
+          duration: 0.4,
+          ease: "power3.out",
+          onComplete: function () {
+            modal.style.display = "none";
+            body.style.height = "100%";
+            gsap.to([mainContent, header], {
+              display: "block",
+              ease: "power1.in",
+              opacity: 1,
+              duration: 0.6,
+            });
+          },
+        });
+      }
+    });
+
+    openModalBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        if (body.classList.contains("card-page")) {
+          let goodTitle = document.querySelector(".card-promo__title").textContent;
+          modalTitle.textContent = goodTitle;
+        } else {
+          let btnText = this.querySelector("span").textContent;
+          modalTitle.textContent = btnText;
+        }
+        gsap.to([mainContent, header], {
+          opacity: 0,
+          duration: 0.3,
+          ease: "power2.out",
+          onComplete: function () {
+            body.style.height = "100vh";
+            mainContent.style.display = "none";
+            header.style.display = "none";
+            gsap.to(modal, {
+              display: "flex",
+              ease: "power1.in",
+              opacity: 1,
+              duration: 0.3,
+            });
+          },
+        });
+      });
     });
   }
 });

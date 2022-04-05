@@ -1,15 +1,15 @@
 .promo {
   position: relative;
-  padding: 110px toRem(65) 150px toRem(65);
+  padding: toRem(110) toRem(65) toRem(150) toRem(65);
   z-index: 1;
   @include to(1200px) {
-    padding: 110px 20px 150px 20px;
+    padding: 70px 20px 90px 20px;
   }
   @include to(992px) {
-    padding: 95px 20px 120px 20px;
+    padding: 60px 20px 80px 20px;
   }
   @include to(768px) {
-    padding: 80px 20px 90px 20px;
+    padding: 80px 20px 70px 20px;
   }
   @include to(576px) {
     padding: 60px 20px 65px 20px;

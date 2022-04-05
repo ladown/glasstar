@@ -41,13 +41,14 @@
       }
     }
     &-subheader {
-      margin-top: 12px;
+      margin-top: toRem(12);
       font-weight: 350;
       font-size: toRem(22);
       line-height: toRem(28);
       letter-spacing: -0.03em;
       color: #ffffff;
       @include to(1200px) {
+        margin-top: 12px;
         font-size: 14px;
         line-height: 18px;
       }

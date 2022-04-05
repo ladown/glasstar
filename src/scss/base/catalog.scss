@@ -95,8 +95,9 @@
     margin-top: toRem(30);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 25px 10px;
+    gap: toRem(25) toRem(10);
     @include to(1200px) {
+      gap: 25px 10px;
       margin-top: 20px;
     }
     @include to(768px) {
@@ -180,7 +181,7 @@
       }
     }
     &-descr {
-      margin-top: 10px;
+      margin-top: toRem(10);
       font-weight: 350;
       font-size: toRem(18);
       line-height: 100%;
@@ -188,6 +189,7 @@
       text-transform: lowercase;
       color: #ffffff;
       @include to(1200px) {
+        margin-top: 10px;
         font-size: 14px;
       }
       @include to(992px) {

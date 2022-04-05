@@ -1,0 +1,158 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background-color: #000;
+  display: none;
+  opacity: 0;
+  &__wrap {
+    overflow-y: auto;
+    max-width: 100%;
+    min-width: toRem(600);
+    min-height: toRem(800);
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: toRem(200) toRem(65) toRem(150) toRem(65);
+    @include to(1200px) {
+      min-width: 400px;
+      min-height: 500px;
+      padding: 100px 20px;
+    }
+    @include to(768px) {
+      min-height: unset;
+      height: 100%;
+      margin: 0 auto;
+    }
+    @include to(576px) {
+      min-width: unset;
+      width: 100%;
+    }
+    .modal-good & {
+      @include to(1200px) {
+        min-height: unset;
+        height: auto;
+        margin: 0 auto;
+        justify-content: initial;
+      }
+    }
+  }
+  &__close {
+    position: absolute;
+    padding: toRem(10);
+    top: toRem(10);
+    right: toRem(10);
+    display: flex;
+    transition: opacity 0.3s ease-in-out;
+    @include to(1200px) {
+      padding: 10px;
+      top: 10px;
+      right: 10px;
+    }
+    &:hover,
+    &:focus {
+      opacity: 0.6;
+      transition: opacity 0.3s ease-in-out;
+    }
+    img {
+      pointer-events: none;
+    }
+  }
+  &__title {
+    width: 100%;
+    max-width: toRem(210);
+    font-weight: 350;
+    font-size: toRem(28);
+    line-height: 100%;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    @include to(1200px) {
+      font-size: 28px;
+    }
+    .modal-good & {
+      max-width: unset;
+      font-size: toRem(32);
+      text-transform: uppercase;
+      @include to(1200px) {
+        font-size: 32px;
+      }
+    }
+  }
+  &__img {
+    display: block;
+    margin: toRem(60) auto 0 auto;
+    @include to(1200px) {
+      margin-top: 60px;
+    }
+    img {
+      width: toRem(194);
+      height: toRem(282);
+      @include to(1200px) {
+        width: 194px;
+        height: 282px;
+      }
+    }
+  }
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+    .modal-good & {
+      margin-top: toRem(60);
+      @include to(1200px) {
+        margin-top: 60px;
+      }
+    }
+    input {
+      &:not(:first-child) {
+        margin-top: toRem(8);
+        @include to(1200px) {
+          margin-top: 8px;
+        }
+      }
+    }
+    button {
+      width: fit-content;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      margin-top: toRem(60);
+      font-weight: 350;
+      font-size: toRem(22);
+      line-height: 100%;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      transition: opacity 0.3s ease-in-out;
+      @include to(1200px) {
+        margin-top: 60px;
+        font-size: 22px;
+      }
+      span {
+        text-align: left;
+        flex: 0 1 auto;
+        text-decoration-line: underline;
+      }
+      img {
+        flex: 0 0 toRem(16);
+        width: toRem(16);
+        height: toRem(14);
+        margin-left: toRem(12);
+        @include to(1200px) {
+          flex: 0 0 16px;
+          width: 16px;
+          height: 16px;
+          margin-left: 12px;
+        }
+      }
+      &:hover,
+      &:focus {
+        opacity: 0.6;
+        transition: opacity 0.3s ease-in-out;
+      }
+    }
+  }
+}

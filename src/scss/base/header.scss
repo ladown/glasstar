@@ -192,10 +192,11 @@
         left: 0;
         width: 100%;
         max-width: 0;
-        height: 4px;
+        height: toRem(4);
         background-color: #fff;
         transition: width 0.3s ease-in-out, max-width 0.3s ease-in-out;
         @include to(1200px) {
+          height: 4px;
           bottom: -17px;
         }
       }

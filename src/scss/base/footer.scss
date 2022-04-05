@@ -107,9 +107,12 @@
       position: absolute;
       top: 0;
       left: toRem(-65);
-      width: calc(100% + toRem(130));
+      width: 100vw;
       height: 1px;
       background-color: #303030;
+      @include to(1200px) {
+        left: -20px;
+      }
       @include to(576px) {
         display: none;
       }
@@ -265,10 +268,11 @@
   &__contacts {
     display: grid;
     grid-template-columns: toRem(460) minmax(toRem(200), 1fr);
-    gap: 15px;
+    gap: toRem(15);
     align-items: end;
     justify-items: end;
     @include to(1200px) {
+      gap: 15px;
       grid-template-columns: 290px minmax(160px, 1fr);
     }
     @include to(992px) {
