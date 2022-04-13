@@ -5,6 +5,7 @@ const commonOptions = require("./webpack.common");
 
 module.exports = merge(commonOptions, {
   mode: "production",
+  devtool: false,
   plugins: [
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,

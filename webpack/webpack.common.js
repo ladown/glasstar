@@ -36,6 +36,7 @@ module.exports = {
         template: `${paths.pug}/${file}`,
         filename: path.join(paths.build, file.replace(".pug", ".html")),
         inject: "body",
+        alwaysWriteToDisk: true,
       });
     }),
   ],
@@ -43,11 +44,15 @@ module.exports = {
     rules: [
       {
         test: /\.pug$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: "pug-loader",
-        options: {
-          pretty: true,
-        },
+        use: [
+          { loader: "raw-loader" },
+          {
+            loader: "pug-html-loader",
+            options: {
+              pretty: true,
+            },
+          },
+        ],
       },
       {
         test: /\.m?js$/,
