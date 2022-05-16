@@ -1,5 +1,11 @@
+:root {
+  --app-height: 100%;
+}
+
 html {
   font-size: 18px;
+  height: 100vh;
+  height: var(--app-height);
 }
 
 body {
@@ -9,6 +15,7 @@ body {
   position: relative;
   &.blocked-scroll {
     overflow: hidden !important;
+    height: 100vh;
   }
 }
 

@@ -211,11 +211,7 @@ window.addEventListener("DOMContentLoaded", () => {
           display: "none",
           ease: "power3.out",
           onComplete: function () {
-            if (!isTouchDevice()) {
-              body.style.height = "100%";
-            } else {
-              body.classList.remove("blocked-scroll");
-            }
+            body.classList.remove("blocked-scroll");
             gsap.to(mainContent, {
               display: "block",
               ease: "power1.in",
@@ -232,11 +228,7 @@ window.addEventListener("DOMContentLoaded", () => {
           onComplete: function () {
             header.classList.add("header--opened");
             mainContent.style.display = "none";
-            if (!isTouchDevice()) {
-              body.style.height = "100vh";
-            } else {
-              body.classList.add("blocked-scroll");
-            }
+            body.classList.add("blocked-scroll");
             gsap.to(headerMenu, {
               display: "flex",
               ease: "power1.in",
@@ -258,11 +250,7 @@ window.addEventListener("DOMContentLoaded", () => {
         display: "none",
         ease: "power3.out",
         onComplete: function () {
-          if (!isTouchDevice()) {
-            body.style.height = "100%";
-          } else {
-            body.classList.remove("blocked-scroll");
-          }
+          body.classList.remove("blocked-scroll");
           gsap.to(mainContent, {
             display: "block",
             ease: "power1.in",
@@ -460,11 +448,7 @@ window.addEventListener("DOMContentLoaded", () => {
               ease: "power3.out",
               onComplete: function () {
                 modal.style.display = "none";
-                if (!isTouchDevice()) {
-                  body.style.height = "100%";
-                } else {
-                  body.classList.remove("blocked-scroll");
-                }
+                body.classList.remove("blocked-scroll");
                 gsap.to([mainContent, header], {
                   display: "block",
                   ease: "power1.in",
@@ -491,11 +475,7 @@ window.addEventListener("DOMContentLoaded", () => {
             onComplete: function () {
               mainContent.style.display = "none";
               header.style.display = "none";
-              if (!isTouchDevice()) {
-                body.style.height = "100vh";
-              } else {
-                body.classList.add("blocked-scroll");
-              }
+              body.classList.add("blocked-scroll");
               gsap.to(callbackModal, {
                 display: "flex",
                 ease: "power1.in",
@@ -515,11 +495,7 @@ window.addEventListener("DOMContentLoaded", () => {
             onComplete: function () {
               mainContent.style.display = "none";
               header.style.display = "none";
-              if (!isTouchDevice()) {
-                body.style.height = "100vh";
-              } else {
-                body.classList.add("blocked-scroll");
-              }
+              body.classList.add("blocked-scroll");
               gsap.to(orderModal, {
                 display: "flex",
                 ease: "power1.in",
