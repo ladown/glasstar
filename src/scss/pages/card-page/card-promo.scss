@@ -47,6 +47,12 @@
     &:hover {
       opacity: 0.6;
       transition: opacity 0.3s ease-in-out;
+      @include from(577px) {
+        &::before {
+          width: 0;
+          transition: all 0.3s ease-in-out;
+        }
+      }
     }
     @include to(1200px) {
       padding-bottom: 3px;
@@ -81,6 +87,7 @@
       width: 100%;
       height: 2px;
       background-color: #fff;
+      transition: all 0.3s ease-in-out;
       @include to(576px) {
         display: none;
       }
@@ -207,6 +214,10 @@
     img {
       max-width: 100%;
       width: 100%;
+      display: none;
+      &.is-active {
+        display: block;
+      }
     }
     @include to(768px) {
       grid-column: 1 / 2;
@@ -358,11 +369,17 @@
     }
   }
   &__slide {
+    cursor: pointer;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
     padding: toRem(20) 0;
+    border: 1px solid transparent;
+    transition: border 0.3s ease-in-out;
+    &:hover {
+      border-color: #fff;
+    }
     @include to(1200px) {
       padding: 12px 0;
     }

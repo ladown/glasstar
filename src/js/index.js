@@ -23,13 +23,15 @@ window.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.querySelector("main.content");
   const header = document.querySelector('[data-header="block"]');
 
+  // Define touch devices
+
+  function isTouchDevice() {
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+  }
+
   // Show elements on scrolling
 
   sal({ threshold: 0.2 });
-
-  // Scroll variable
-
-  let scrollbar = null;
 
   // Setting font size on resize
 
@@ -103,7 +105,12 @@ window.addEventListener("DOMContentLoaded", () => {
       },
       onComplete: function () {
         gsap.to(loaderBlock, { display: "none" });
-        scrollbar = Scrollbar.init(mainContent);
+        if (!isTouchDevice()) {
+          Scrollbar.init(mainContent);
+          body.classList.add("scroll-enabled");
+        } else {
+          body.classList.remove("scroll-enabled");
+        }
       },
     });
   }
@@ -204,7 +211,11 @@ window.addEventListener("DOMContentLoaded", () => {
           display: "none",
           ease: "power3.out",
           onComplete: function () {
-            body.style.height = "100%";
+            if (!isTouchDevice()) {
+              body.style.height = "100%";
+            } else {
+              body.classList.remove("blocked-scroll");
+            }
             gsap.to(mainContent, {
               display: "block",
               ease: "power1.in",
@@ -216,17 +227,21 @@ window.addEventListener("DOMContentLoaded", () => {
       } else {
         gsap.to(mainContent, {
           opacity: 0,
-          duration: 0.4,
+          duration: 0.2,
           ease: "power2.out",
           onComplete: function () {
             header.classList.add("header--opened");
-            body.style.height = "100vh";
             mainContent.style.display = "none";
+            if (!isTouchDevice()) {
+              body.style.height = "100vh";
+            } else {
+              body.classList.add("blocked-scroll");
+            }
             gsap.to(headerMenu, {
               display: "flex",
               ease: "power1.in",
               opacity: 1,
-              duration: 0.3,
+              duration: 0.2,
             });
           },
         });
@@ -243,6 +258,11 @@ window.addEventListener("DOMContentLoaded", () => {
         display: "none",
         ease: "power3.out",
         onComplete: function () {
+          if (!isTouchDevice()) {
+            body.style.height = "100%";
+          } else {
+            body.classList.remove("blocked-scroll");
+          }
           gsap.to(mainContent, {
             display: "block",
             ease: "power1.in",
@@ -288,42 +308,43 @@ window.addEventListener("DOMContentLoaded", () => {
           gsap.killTweensOf([cardImgBlock, cardLine, cardArrow]);
           gsap.to(cardImgBlock, {
             opacity: 0,
-            duration: 0.4,
-            ease: "power1.out",
-            onComplete: function () {
-              cardImgBlock.style.display = "none";
-            },
+            duration: 0.3,
+            display: "none",
+            ease: "power1.inOut",
             onStart: function () {
               cardImg.style.pointerEvents = "none";
-              gsap.to(cardLine, { width: "0", duration: 0.4, ease: "power1.out" });
-              gsap.to(cardArrow, { translateX: "0", duration: 0.4, ease: "power1.out" });
+              gsap.to(cardArrow, {
+                translateX: "0",
+                duration: 0.6,
+                ease: "power1.inOut",
+                onStart: function () {
+                  cardLine.style.width = "0";
+                },
+              });
             },
           });
           isAnimationStared = false;
         } else {
+          cardImgBlock.style.display = "block";
           gsap.to(cardImgBlock, {
             top: `${yCord}px`,
             left: `${xCord}px`,
-            display: "block",
             duration: 0.05,
             onComplete: function () {
               cardImg.style.pointerEvents = "all";
               gsap.to(cardImgBlock, {
                 opacity: 1,
-                duration: 0.2,
-                ease: "power1.in",
-                onComplete: function () {
+                duration: 0.1,
+                ease: "power1.inOut",
+                onStart: function () {
                   if (!isAnimationStared) {
-                    gsap.to(cardLine, {
-                      width: "100vw",
-                      duration: 0.3,
-                      ease: "power1.in",
-                    });
                     gsap.to(cardArrow, {
                       translateX: `-${window.innerWidth >= 1201 ? window.innerWidth - 100 : window.innerWidth <= 600 ? 0 : window.innerWidth - 60}px`,
-                      delay: 0.1,
                       duration: 0.6,
-                      ease: "power2.in",
+                      ease: "power1.inOut",
+                      onStart: function () {
+                        cardLine.style.width = "100vw";
+                      },
                     });
                     isAnimationStared = true;
                   }
@@ -338,15 +359,19 @@ window.addEventListener("DOMContentLoaded", () => {
         gsap.killTweensOf([cardImgBlock, cardLine, cardArrow]);
         gsap.to(cardImgBlock, {
           opacity: 0,
-          duration: 0.4,
-          ease: "power1.out",
-          onComplete: function () {
-            cardImgBlock.style.display = "none";
-          },
+          duration: 0.3,
+          display: "none",
+          ease: "power1.inOut",
           onStart: function () {
             cardImg.style.pointerEvents = "none";
-            gsap.to(cardLine, { width: "0", duration: 0.4, ease: "power1.out" });
-            gsap.to(cardArrow, { translateX: "0", duration: 0.4, ease: "power1.out" });
+            gsap.to(cardArrow, {
+              translateX: "0",
+              duration: 0.6,
+              ease: "power1.inOut",
+              onStart: function () {
+                cardLine.style.width = "0";
+              },
+            });
           },
         });
         isAnimationStared = false;
@@ -357,9 +382,11 @@ window.addEventListener("DOMContentLoaded", () => {
   const cardPromoSlider = document.querySelector("[data-slider='card-promo'] .swiper");
 
   if (cardPromoSlider) {
+    const mainImgs = Array.from(document.querySelectorAll('[data-card-promo="img"]'));
     const progressBar = document.querySelector(".card-promo__slider-progress-bar");
     new Swiper(cardPromoSlider, {
       slidesPerView: "auto",
+      preventClicks: false,
       modules: [Navigation, Pagination, Grid],
       navigation: {
         nextEl: '[data-slider="card-promo-next"]',
@@ -385,60 +412,123 @@ window.addEventListener("DOMContentLoaded", () => {
             progressBar.style.transform = `scaleX(${this.progress ? this.progress : 0.1})`;
           }
         },
+        afterInit: function (swiper) {
+          swiper.slides.forEach((slide, index) => {
+            slide.addEventListener("click", () => {
+              if (!mainImgs[index].classList.contains("is-active")) {
+                mainImgs.forEach((img) => {
+                  if (img.classList.contains("is-active")) {
+                    gsap.to(img, {
+                      opacity: 0,
+                      display: "none",
+                      duration: 0.3,
+                      onComplete: function () {
+                        img.classList.remove("is-active");
+                        gsap.to(mainImgs[index], {
+                          opacity: 1,
+                          display: "block",
+                          duration: 0.3,
+                          onComplete: function () {
+                            mainImgs[index].classList.add("is-active");
+                          },
+                        });
+                      },
+                    });
+                  }
+                });
+              }
+            });
+          });
+        },
       },
     });
   }
 
-  const modal = document.querySelector('[data-modal="block"]');
-  const openModalBtns = document.querySelectorAll('[data-modal="open-btn"]');
+  const callbackModal = document.querySelector('[data-modal="callback"]');
+  const orderModal = document.querySelector('[data-modal="order"]');
+  const openModalBtns = [...Array.from(document.querySelectorAll('[data-modal="open-callback"]')), ...Array.from(document.querySelectorAll('[data-modal="open-order"]'))];
 
-  if (modal && openModalBtns.length) {
-    const modalTitle = modal.querySelector(".modal__title");
-    modal.addEventListener("click", function (event) {
-      if (event.target && event.target.dataset.modal === "close-btn") {
-        gsap.to(this, {
-          opacity: 0,
-          duration: 0.4,
-          ease: "power3.out",
-          onComplete: function () {
-            modal.style.display = "none";
-            body.style.height = "100%";
-            gsap.to([mainContent, header], {
-              display: "block",
-              ease: "power1.in",
-              opacity: 1,
-              duration: 0.6,
+  if ((callbackModal || orderModal) && openModalBtns.length) {
+    const modals = [callbackModal, orderModal];
+    modals.forEach((modal) => {
+      if (modal) {
+        modal.addEventListener("click", (event) => {
+          if (event.target && event.target.dataset.modal === "close-btn") {
+            gsap.to(modal, {
+              opacity: 0,
+              duration: 0.4,
+              ease: "power3.out",
+              onComplete: function () {
+                modal.style.display = "none";
+                if (!isTouchDevice()) {
+                  body.style.height = "100%";
+                } else {
+                  body.classList.remove("blocked-scroll");
+                }
+                gsap.to([mainContent, header], {
+                  display: "block",
+                  ease: "power1.in",
+                  opacity: 1,
+                  duration: 0.6,
+                });
+              },
             });
-          },
+          }
         });
       }
     });
 
     openModalBtns.forEach((btn) => {
+      const modalType = btn.getAttribute("data-modal").slice(5);
       btn.addEventListener("click", function () {
-        if (body.classList.contains("card-page")) {
-          let goodTitle = document.querySelector(".card-promo__title").textContent;
+        if (modalType === "callback") {
+          const modalTitle = callbackModal.querySelector(".modal__title");
+          modalTitle.textContent = btn.querySelector("span").textContent;
+          gsap.to([mainContent, header], {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.out",
+            onComplete: function () {
+              mainContent.style.display = "none";
+              header.style.display = "none";
+              if (!isTouchDevice()) {
+                body.style.height = "100vh";
+              } else {
+                body.classList.add("blocked-scroll");
+              }
+              gsap.to(callbackModal, {
+                display: "flex",
+                ease: "power1.in",
+                opacity: 1,
+                duration: 0.3,
+              });
+            },
+          });
+        } else if (modalType === "order") {
+          const modalTitle = orderModal.querySelector(".modal__title");
+          const goodTitle = document.querySelector(".card-promo__title").textContent;
           modalTitle.textContent = goodTitle;
-        } else {
-          let btnText = this.querySelector("span").textContent;
-          modalTitle.textContent = btnText;
+          gsap.to([mainContent, header], {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.out",
+            onComplete: function () {
+              mainContent.style.display = "none";
+              header.style.display = "none";
+              if (!isTouchDevice()) {
+                body.style.height = "100vh";
+              } else {
+                body.classList.add("blocked-scroll");
+              }
+              gsap.to(orderModal, {
+                display: "flex",
+                ease: "power1.in",
+                opacity: 1,
+                duration: 0.3,
+              });
+            },
+          });
         }
-        gsap.to([mainContent, header], {
-          opacity: 0,
-          duration: 0.3,
-          ease: "power2.out",
-          onComplete: function () {
-            body.style.height = "100vh";
-            mainContent.style.display = "none";
-            header.style.display = "none";
-            gsap.to(modal, {
-              display: "flex",
-              ease: "power1.in",
-              opacity: 1,
-              duration: 0.3,
-            });
-          },
-        });
       });
     });
   }

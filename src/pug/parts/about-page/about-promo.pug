@@ -1,34 +1,34 @@
 include ../../inc/settings.pug
 
+-
+  var aboutAdvantages = [
+    {
+      key: '1996',
+      val: 'год основания <br/>завода',
+    },
+    {
+      key: '350',
+      val: 'стекольных мастеров <br/>работают у нас',
+    },
+    {
+      key: '21',
+      val: 'поставляем посуду <br/>в 21 страну',
+    },
+    {
+      key: '1540',
+      val: 'позиций <br/>товара',
+    },
+  ];
+
 section.about-promo
   .about-promo__wrap 
     h1.about-promo__title(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") завод
     p.about-promo__subtitle(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") Гусь-Хрустальный стекольный завод основан в 1996 году. За 25 лет мы стали лидером производства посуды с титановой обработкой в России. Мы выпускаем 16 миллионов товаров в месяц, и с каждым годом накапливаем производственные мощности
     .about-promo__items 
-      .about-promo__item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
-        .about-promo__item-key 1996
-        .about-promo__item-value 
-          | год основания
-          br 
-          | завода
-      .about-promo__item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
-        .about-promo__item-key 350
-        .about-promo__item-value 
-          | стекольных мастеров
-          br 
-          | работают у нас
-      .about-promo__item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
-        .about-promo__item-key 21
-        .about-promo__item-value 
-          | поставляем посуду
-          br
-          | в 21 страну
-      .about-promo__item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
-        .about-promo__item-key 1540
-        .about-promo__item-value 
-          | позиций
-          br
-          | товара
+      each item in aboutAdvantages
+        .about-promo__item(data-sal="slide-up" data-sal-duration="400" data-sal-easing="ease-in-sine")
+          .about-promo__item-key #{ item.key }
+          .about-promo__item-value !{ item.val }
   picture.about-promo__bg 
     source(srcset=`${imgPath}about-page/about-promo/about-promo-bg-mob.png` media="(max-width: 576px)")
     img(src=`${imgPath}about-page/about-promo/about-promo-bg.png` alt="about-promo-bg")

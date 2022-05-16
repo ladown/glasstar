@@ -15,13 +15,15 @@ body {
 main.content {
   opacity: 0;
   width: 100%;
-  height: 100vh;
-  overflow: auto;
+  overflow-x: hidden;
   padding-top: toRem(74);
   @include to(1200px) {
     padding-top: 46px;
   }
   @include to(992px) {
     padding-top: 81px;
+  }
+  .scroll-enabled & {
+    height: 100vh;
   }
 }

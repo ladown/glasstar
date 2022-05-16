@@ -173,7 +173,7 @@
       width: 0;
       height: 3px;
       background-color: #fff;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.6s ease-in-out;
       @include to(1200px) {
         right: -20px;
       }

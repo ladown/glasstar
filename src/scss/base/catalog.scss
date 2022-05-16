@@ -110,6 +110,8 @@
     }
   }
   &__item {
+    cursor: pointer;
+    position: relative;
     padding: toRem(100) 0 toRem(25) 0;
     border-top: 1px solid #2a2a2a;
     border-bottom: 1px solid #2a2a2a;
@@ -132,6 +134,30 @@
     &:nth-child(2) {
       @include to(576px) {
         border-top: 1px solid #2a2a2a;
+      }
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: toRem(1);
+      background-color: #fff;
+      transition: all 0.3s ease-in-out;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    &:hover {
+      &::before,
+      &::after {
+        width: 100%;
+        transition: all 0.3s ease-in-out;
       }
     }
     &-img {

@@ -1,26 +1,32 @@
 include settings.pug
 
+-
+  var loaderImgs = [
+   `${imgPath}loader/item-1.svg`,
+   `${imgPath}loader/item-2.svg`,
+   `${imgPath}loader/item-3.svg`,
+   `${imgPath}loader/item-4.svg`,
+   `${imgPath}loader/item-5.svg`,
+   `${imgPath}loader/item-6.svg`,
+   `${imgPath}loader/item-7.svg`,
+   `${imgPath}loader/item-8.svg`,
+   `${imgPath}loader/item-9.svg`,
+   `${imgPath}loader/item-10.svg`,
+   `${imgPath}loader/item-1.svg`,
+   `${imgPath}loader/item-2.svg`,
+   `${imgPath}loader/item-3.svg`,
+   `${imgPath}loader/item-4.svg`,
+   `${imgPath}loader/item-5.svg`,
+   `${imgPath}loader/item-6.svg`,
+   `${imgPath}loader/item-7.svg`,
+   `${imgPath}loader/item-8.svg`,
+   `${imgPath}loader/item-9.svg`,
+   `${imgPath}loader/item-10.svg`,
+  ];
+
 section.loader(data-loader="block")
   .loader__wrap
     h2.loader__title(data-loader="percents") 0
     .loader__items
-      img.loader__item(src=`${imgPath}loader/item-1.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-2.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-3.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-4.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-5.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-6.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-7.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-8.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-9.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-10.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-1.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-2.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-3.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-4.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-5.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-6.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-7.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-8.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-9.svg` alt="glss-icon")
-      img.loader__item(src=`${imgPath}loader/item-10.svg` alt="glss-icon")
+      each item in loaderImgs
+        img.loader__item(src=item alt="glass-loader-icon")

@@ -3,23 +3,23 @@ const path = require("path");
 const paths = require("./paths");
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const pugTemplates = [];
 const srcPugFiles = fs.readdirSync(`${paths.pug}`);
 srcPugFiles.forEach((s) => s.endsWith(".pug") && pugTemplates.push(s));
 
 module.exports = {
+  target: "web",
+
   entry: ["@babel/polyfill", `${paths.src}/js/index.js`],
+
   output: {
     path: paths.build,
     filename: "js/[name].js",
     clean: true,
   },
+
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: ({ chunk }) => `css/${chunk.name.replace("/js/", "/css/")}.css`,
-    }),
     new CopyPlugin({
       patterns: [
         {
@@ -31,6 +31,7 @@ module.exports = {
         },
       ],
     }),
+
     ...pugTemplates.map((file) => {
       return new HtmlWebpackPlugin({
         template: `${paths.pug}/${file}`,
@@ -44,16 +45,9 @@ module.exports = {
     rules: [
       {
         test: /\.pug$/,
-        use: [
-          { loader: "raw-loader" },
-          {
-            loader: "pug-html-loader",
-            options: {
-              pretty: true,
-            },
-          },
-        ],
+        loader: "@webdiscus/pug-loader",
       },
+
       {
         test: /\.m?js$/,
         exclude: [/(node_modules|bower_components)/, `${paths.vendors}/vendor.js`],
@@ -61,10 +55,32 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+
       {
         test: /\.(c|sa|sc)ss$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
+
       {
         test: /\.(woff(2)?|ttf(2)?|eot|otf)(\?v=\d+\.\d+\.\d+)?$/,
         exclude: /(node_modules|bower_components)/,
@@ -73,6 +89,7 @@ module.exports = {
           filename: "fonts/[name][ext]",
         },
       },
+
       {
         test: /\.(jpe?g|png|gif|svg?)$/i,
         exclude: /(node_modules|bower_components)/,
@@ -82,8 +99,5 @@ module.exports = {
         },
       },
     ],
-  },
-  optimization: {
-    runtimeChunk: "single",
   },
 };

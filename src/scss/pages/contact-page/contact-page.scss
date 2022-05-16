@@ -107,7 +107,6 @@
     display: flex;
     flex-flow: column nowrap;
     margin-left: toRem(15);
-    justify-content: space-between;
     @include to(1200px) {
       margin-left: 15px;
       flex: 0 1 270px;

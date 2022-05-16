@@ -238,19 +238,24 @@
     }
   }
   &__menu {
+    overflow-y: auto;
     z-index: 50;
     position: fixed;
-    padding: 40px 20px 60px;
+    padding: 25px 20px;
     top: 0;
     left: 0;
     opacity: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background: #000000;
     display: none;
     flex-flow: column nowrap;
     justify-content: flex-end;
     pointer-events: none;
+    .scroll-enabled & {
+      padding: 40px 20px 60px;
+      height: 100vh;
+    }
     .header--opened & {
       pointer-events: all;
     }

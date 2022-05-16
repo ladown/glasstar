@@ -1,18 +1,30 @@
+-
+  var headerNav = [
+    {
+      href: '/catalog.html',
+      text: 'Продукция',
+    },
+    {
+      href: '/technology.html',
+      text: 'Технология',
+    },
+    {
+      href: '/about.html',
+      text: 'Завод',
+    },
+    {
+      href: '/contact.html',
+      text: 'Контакты',
+    },
+  ];
+
 header.header(data-header="block")
   .header__wrap
     nav.header__nav
-      a.header__link(href="/catalog.html" data-link="redirect")
-        span.header__link-text Продукция
-        span.header__link-count 01.
-      a.header__link(href="/technology.html" data-link="redirect")
-        span.header__link-text Технология
-        span.header__link-count 02.
-      a.header__link(href="/about.html" data-link="redirect")
-        span.header__link-text Завод
-        span.header__link-count 03.
-      a.header__link(href="/contact.html" data-link="redirect")
-        span.header__link-text Контакты
-        span.header__link-count 04.
+      each link, index in headerNav
+        a.header__link(href=link.href data-link="redirect")
+          span.header__link-text #{ link.text }
+          span.header__link-count 0#{ index + 1 }.
     a.header__logo(href="/" data-link="redirect") Glasstar
     .header__callback
       button.header__callback-btn Перезвоните мне
@@ -26,18 +38,10 @@ header.header(data-header="block")
         line(x1="60" x2="0" y1="13" y2="13")
   .header__menu(data-header="menu")
     nav.header__nav
-      a.header__link(href="/catalog.html" data-link="redirect")
-        span.header__link-text Продукция
-        span.header__link-count 01.
-      a.header__link(href="/technology.html" data-link="redirect")
-        span.header__link-text Технология
-        span.header__link-count 02.
-      a.header__link(href="/about.html" data-link="redirect")
-        span.header__link-text Завод
-        span.header__link-count 03.
-      a.header__link(href="/contact.html" data-link="redirect")
-        span.header__link-text Контакты
-        span.header__link-count 04.
+      each link, index in headerNav
+        a.header__link(href=link.href data-link="redirect")
+          span.header__link-text #{ link.text }
+          span.header__link-count 0#{ index + 1 }.
     .header__contacts
       a.header__contact(href="tel:+7800333666123") 8 800 333 666 123
       a.header__contact(href="mailto:info@glasstar.com") info@glasstar.com

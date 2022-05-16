@@ -1,27 +1,75 @@
+-
+  var firstColNav = [
+    {
+      title: 'технология',
+      href: '/technology.html',
+    },
+    {
+      title: 'компания',
+      href: '/about.html',
+    },
+    {
+      title: 'контакты',
+      href: '/contact.html',
+    },
+  ];
+  var secondColNav = [
+    {
+      isSpecialLink: true,
+      title: 'продукция',
+      count: '78',
+      href: '/catalog.html',
+    },
+    {
+      title: 'Бокалы для вина',
+      href: '/catalog-inner.html',
+    },
+    {
+      title: 'Для шампанского',
+      href: '/catalog-inner.html',
+    },
+    {
+      title: 'Для мартини',
+      href: '/catalog-inner.html',
+    },
+    {
+      title: 'Для коньяка',
+      href: '/catalog-inner.html',
+    },
+    {
+      title: 'Рюмки',
+      href: '/catalog-inner.html',
+    },
+    {
+      title: 'Вазы',
+      href: '/catalog-inner.html',
+    },
+    {
+      title: 'пепельницы',
+      href: '/catalog-inner.html',
+    },
+    {
+      title: 'категория',
+      href: '/catalog-inner.html',
+    },
+  ];
+
 footer.footer 
   .footer__wrap
     .footer__nav 
       .footer__nav-item.footer__nav-item_row
-        a.footer__link(href="/technology.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") технология
-        a.footer__link(href="/about.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") компания
-        a.footer__link(href="/contact.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") контакты
+        each link in firstColNav
+          a.footer__link(href=link.href data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine")
+            | #{ link.title }
       .footer__nav-item
-        a.footer__link.footer__link_big(
-          data-sal="fade"
-          data-sal-duration="400"
-          data-sal-easing="ease-in-sine"
-          href="/catalog.html"
-          data-link="redirect") 
-          span.footer__link-text продукция
-          span.footer__link-count 78
-        a.footer__link(href="/catalog-inner.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") Бокалы для вина
-        a.footer__link(href="/catalog-inner.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") Для шампанского
-        a.footer__link(href="/catalog-inner.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") Для мартини
-        a.footer__link(href="/catalog-inner.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") Для коньяка
-        a.footer__link(href="/catalog-inner.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") Рюмки
-        a.footer__link(href="/catalog-inner.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") Вазы
-        a.footer__link(href="/catalog-inner.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") пепельницы
-        a.footer__link(href="/catalog-inner.html" data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") категория
+        each link in secondColNav
+          if link.isSpecialLink
+            a.footer__link.footer__link_big(href=link.href data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine" data-link="redirect") 
+              span.footer__link-text #{ link.title }
+              span.footer__link-count #{ link.count }
+          else
+            a.footer__link(href=link.href data-link="redirect" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") 
+              | #{ link.title }
     .footer__info
       .footer__contacts 
         address.footer__address(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine")
@@ -30,7 +78,7 @@ footer.footer
           | Владимирская область, г. Гусь-Хрустальный,&nbsp;
           br
           | ул. Интернациональная, д. 124
-        a.footer__contact(href="tel:+7800333666123" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") 8 800 333 666 123
+        a.footer__contact(href="tel:+74924121262" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") +7 492 412 12 62
         a.footer__contact(href="mailto:info@glasstar.com" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") info@glasstar.com
       .footer__developedby(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine")
         | design & develompent at&nbsp;

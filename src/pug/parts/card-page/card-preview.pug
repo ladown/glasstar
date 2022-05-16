@@ -2,39 +2,14 @@ include ../../inc/settings.pug
 
 section.card-preview
   .card-preview__wrap 
-    picture.card-preview__image(
-      data-sal="fade"
-      data-sal-duration="400"
-      data-sal-easing="ease-in-sine")
-      source(
-        srcset=`${imgPath}card-page/card-preview/preview-img-mob.png`
-        media="(max-width: 576px)")
+    picture.card-preview__image(data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine")
+      source(srcset=`${imgPath}card-page/card-preview/preview-img-mob.png` media="(max-width: 576px)")
       img(src=`${imgPath}card-page/card-preview/preview-img.png` alt="preview-image")
     .card-preview__block
       .card-preview__links
-        a.card-preview__link(
-          href="tel:+8800333666123"
-          data-sal="fade"
-          data-sal-duration="400"
-          data-sal-easing="ease-in-sine") 8 800 333 666 123
-        a.card-preview__link(
-          href="mailto:info@glasstar.com"
-          data-sal="fade"
-          data-sal-duration="400"
-          data-sal-easing="ease-in-sine") info@glasstar.com
-      button.card-preview__btn.button(
-        data-modal="open-btn"
-        data-sal="fade"
-        data-sal-duration="400"
-        data-sal-easing="ease-in-sine")
+        a.card-preview__link(href="tel:+8800333666123" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") 8 800 333 666 123
+        a.card-preview__link(href="mailto:info@glasstar.com" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine") info@glasstar.com
+      button.card-preview__btn.button(data-modal="open-callback" data-sal="fade" data-sal-duration="400" data-sal-easing="ease-in-sine")
         span перезвоните мне
-        svg(
-          width="16"
-          height="17"
-          viewBox="0 0 16 17"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg")
-          path(
-            d="M0.717518 15.8597L14.8597 1.71753M14.8597 1.71753H1.42462M14.8597 1.71753V15.1526"
-            stroke="white"
-            stroke-width="2")
+        svg(width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg")
+          path(d="M0.717518 15.8597L14.8597 1.71753M14.8597 1.71753H1.42462M14.8597 1.71753V15.1526" stroke="white" stroke-width="2")
