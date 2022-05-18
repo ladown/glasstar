@@ -135,49 +135,43 @@ window.addEventListener("DOMContentLoaded", () => {
                   duration: 0.3,
                   ease: "power1.out",
                   onComplete: function () {
-                    gsap.to([header, mainContent], {
-                      display: "none",
+                    gsap.to(loaderBlock, {
+                      display: "block",
                       duration: 0.05,
-                      onStart: function () {
+                      onComplete: function () {
                         gsap.to(loaderBlock, {
-                          display: "block",
-                          duration: 0.05,
+                          translateY: 0,
+                          ease: "slow(0.1, 0.7, false)",
+                          duration: 0.2,
                           onComplete: function () {
-                            gsap.to(loaderBlock, {
-                              translateY: 0,
-                              ease: "slow(0.1, 0.7, false)",
-                              duration: 0.2,
-                              onComplete: function () {
-                                const imagesToLoad = html.querySelectorAll("main.content img");
-                                const countImagesToLoad = imagesToLoad.length;
-                                const percentForPerImage = 100 / countImagesToLoad;
-                                if (imagesToLoad.length) {
-                                  imagesToLoad.forEach((el) => {
-                                    if (el) {
-                                      let image = new Image();
-                                      image.src = el.src;
-                                      image.onload = () => {
-                                        loadingProgress += percentForPerImage;
-                                        loadedItems++;
-                                        if (loadingProgress === 100 || loadedItems === countImagesToLoad) {
-                                          loaderBlockPercents.textContent = Math.round(loadingProgress);
-                                          location.href = pageLink;
-                                        } else {
-                                          loaderBlockPercents.textContent = Math.round(loadingProgress);
-                                        }
-                                      };
-                                      image.onerror = () => {
-                                        throw new Error("Something went wrong");
-                                      };
+                            const imagesToLoad = html.querySelectorAll("main.content img");
+                            const countImagesToLoad = imagesToLoad.length;
+                            const percentForPerImage = 100 / countImagesToLoad;
+                            if (imagesToLoad.length) {
+                              imagesToLoad.forEach((el) => {
+                                if (el) {
+                                  let image = new Image();
+                                  image.src = el.src;
+                                  image.onload = () => {
+                                    loadingProgress += percentForPerImage;
+                                    loadedItems++;
+                                    if (loadingProgress === 100 || loadedItems === countImagesToLoad) {
+                                      loaderBlockPercents.textContent = Math.round(loadingProgress);
+                                      location.href = pageLink;
                                     } else {
-                                      throw new Error("Unexpected element");
+                                      loaderBlockPercents.textContent = Math.round(loadingProgress);
                                     }
-                                  });
+                                  };
+                                  image.onerror = () => {
+                                    throw new Error("Something went wrong");
+                                  };
                                 } else {
-                                  location.href = pageLink;
+                                  throw new Error("Unexpected element");
                                 }
-                              },
-                            });
+                              });
+                            } else {
+                              location.href = pageLink;
+                            }
                           },
                         });
                       },
@@ -213,7 +207,6 @@ window.addEventListener("DOMContentLoaded", () => {
           onComplete: function () {
             body.classList.remove("blocked-scroll");
             gsap.to(mainContent, {
-              display: "block",
               ease: "power1.in",
               opacity: 1,
               duration: 0.6,
@@ -227,7 +220,6 @@ window.addEventListener("DOMContentLoaded", () => {
           ease: "power2.out",
           onComplete: function () {
             header.classList.add("header--opened");
-            mainContent.style.display = "none";
             body.classList.add("blocked-scroll");
             gsap.to(headerMenu, {
               display: "flex",
@@ -252,7 +244,6 @@ window.addEventListener("DOMContentLoaded", () => {
         onComplete: function () {
           body.classList.remove("blocked-scroll");
           gsap.to(mainContent, {
-            display: "block",
             ease: "power1.in",
             opacity: 1,
             duration: 0.6,
@@ -450,7 +441,6 @@ window.addEventListener("DOMContentLoaded", () => {
                 modal.style.display = "none";
                 body.classList.remove("blocked-scroll");
                 gsap.to([mainContent, header], {
-                  display: "block",
                   ease: "power1.in",
                   opacity: 1,
                   duration: 0.6,
@@ -467,14 +457,12 @@ window.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", function () {
         if (modalType === "callback") {
           const modalTitle = callbackModal.querySelector(".modal__title");
-          modalTitle.textContent = btn.querySelector("span").textContent;
+          modalTitle.textContent = btn.querySelector("span") ? btn.querySelector("span").textContent : btn.textContent;
           gsap.to([mainContent, header], {
             opacity: 0,
             duration: 0.3,
             ease: "power2.out",
             onComplete: function () {
-              mainContent.style.display = "none";
-              header.style.display = "none";
               body.classList.add("blocked-scroll");
               gsap.to(callbackModal, {
                 display: "flex",
@@ -493,8 +481,6 @@ window.addEventListener("DOMContentLoaded", () => {
             duration: 0.3,
             ease: "power2.out",
             onComplete: function () {
-              mainContent.style.display = "none";
-              header.style.display = "none";
               body.classList.add("blocked-scroll");
               gsap.to(orderModal, {
                 display: "flex",
@@ -505,6 +491,16 @@ window.addEventListener("DOMContentLoaded", () => {
             },
           });
         }
+      });
+    });
+  }
+
+  const backBtns = document.querySelectorAll('[data-back="btn"]');
+
+  if (backBtns.length) {
+    backBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        history.back();
       });
     });
   }

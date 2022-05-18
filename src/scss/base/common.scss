@@ -15,7 +15,7 @@ body {
   position: relative;
   &.blocked-scroll {
     overflow: hidden !important;
-    height: 100vh;
+    // height: 100vh;
   }
 }
 
