@@ -1,6 +1,29 @@
-doctype html
-	
-html(lang="ru")
+const pugFiles = require('./pugPages')();
+
+let folder = __dirname.replace('webpack', '').trim().split('/');
+let projectName = folder[folder.length - 2].replace('-', ' ').replace('_', ' ').toLowerCase();
+let formatedProjectName = `${projectName[0].toUpperCase() + projectName.slice(1)}`;
+
+const generatingPageList = () => {
+	let list = '<ol>';
+	pugFiles.forEach((pageName) => {
+		if (!pageName.includes('index')) {
+			let name = `${pageName.replace('.pug', '')[0].toUpperCase() + pageName.replace('.pug', '').slice(1)} page`;
+			list += `<li><a href="https://portfolio.ermilovee.ru/glasstar/${pageName.replace(
+				'.pug',
+				'.html',
+			)}" target="_blank"> ${name}</a></li>`;
+		}
+	});
+
+	list += '</ol>';
+
+	return list;
+};
+
+const generateTemplaet = () => {
+	return `doctype html
+	\nhtml(lang="ru")
 		head
 			title Список всех старниц
 			meta(name="format-detection" content="telephone=no")
@@ -167,6 +190,9 @@ html(lang="ru")
 					.head-top
 						h3.head-title
 							| Страницы проекта 
-							span «Glasstar»:
+							span «${formatedProjectName}»:
 						a.git-link(href="https://github.com/ladown?tab=repositories" target="_blank") ladown
-					<ol><li><a href="https://portfolio.ermilovee.ru/glasstar/about.html" target="_blank"> About page</a></li><li><a href="https://portfolio.ermilovee.ru/glasstar/card.html" target="_blank"> Card page</a></li><li><a href="https://portfolio.ermilovee.ru/glasstar/catalog-inner.html" target="_blank"> Catalog-inner page</a></li><li><a href="https://portfolio.ermilovee.ru/glasstar/catalog.html" target="_blank"> Catalog page</a></li><li><a href="https://portfolio.ermilovee.ru/glasstar/contact.html" target="_blank"> Contact page</a></li><li><a href="https://portfolio.ermilovee.ru/glasstar/main.html" target="_blank"> Main page</a></li><li><a href="https://portfolio.ermilovee.ru/glasstar/technology.html" target="_blank"> Technology page</a></li></ol>
+					${generatingPageList()}`;
+};
+
+module.exports = { generateTemplaet };

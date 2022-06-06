@@ -1,0 +1,13 @@
+extends inc/layout.pug
+
+include inc/settings.pug
+
+block append variables
+  - bodyClass = "main-page";
+
+block content
+  include parts/main-page/promo.pug
+  +catalog("Популярное")
+  include parts/main-page/technology.pug
+  include inc/goods.pug
+  include parts/main-page/factory.pug
